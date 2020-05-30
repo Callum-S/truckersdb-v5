@@ -1,0 +1,211 @@
+@import url('reset.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+body
+{
+    font-family: 'Cairo', sans-serif;
+    user-select: none;
+    background: #fff;
+    font-weight: 400;
+    color: #202020;
+    font-size: 1em;
+    min-height: 100vh;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-weight: 600;
+}
+
+h1
+{
+    font-size: 2.3em;
+}
+
+h2
+{
+    font-size: 2.1em;
+}
+
+h3
+{
+    font-size: 1.9em;
+}
+
+h4
+{
+    font-size: 1.7em;
+}
+
+h5
+{
+    font-size: 1.5em;
+}
+
+h6
+{
+    font-size: 1.3em;
+}
+
+p
+{
+    font-size: 1.1em;
+}
+
+strong, b
+{
+    font-weight: 700;
+}
+
+em, i
+{
+    font-style: oblique;
+}
+
+a
+{
+    color: #fc7900;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #fc7900;
+    filter: brightness(85%);
+    text-decoration: none;
+}
+
+.bg-orange
+{
+    background: #fc7900;
+}
+
+.highlight
+{
+    color: #fc7900;
+}
+
+#logoutButton
+{
+    font-size: 1.4em;
+    float: right;
+    margin-right: 15px;
+}
+
+.navbar
+{
+    font-weight: 600;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 10px 0px rgba(32,32,32,0.5);
+}
+
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar-light .navbar-nav .nav-link:hover
+{
+    color: rgba(0, 0, 0, 1);
+}
+
+.dropdown-divider-vertical
+{
+    border-left: 1px solid #ccc;
+}
+
+.dropdown-header
+{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.profile-dropdown .dropdown-menu
+{
+    width: 400px;
+    text-align: center;
+}
+
+.profile-dropdown .dropdown-menu .col
+{
+    display: inline-block;
+    width: 49%;
+}
+
+.profile-dropdown .staff-menu
+{
+    margin-top: 10px;
+}
+
+.profile-dropdown .staff-menu a
+{
+    display: inline-block;
+    width: 49%;
+}
+
+
+.hero
+{
+    background: url('../img/showusyourlorry.jpg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px -1px 10px 0px rgba(32,32,32,0.5);
+}
+
+.hero .row
+{
+    background: rgba(20, 20, 20, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+.hero .col
+{
+    padding: 100px;
+}
+
+.hero .divider
+{
+    border-left: 2px solid #fff;
+}
+
+.hero h3
+{
+    font-size: 2.5em;
+}
+
+.hero .btn
+{
+    margin-top: 10px;
+    border-width: 1.5px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.hero .btn:hover
+{
+    filter: brightness(100%);
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #202020;
+    color: #fff;
+    margin: 10px 0 0;
+    padding: 0;
+}
