@@ -1,3 +1,8 @@
+$('[data-toggle="tooltip"]').tooltip();
+$('a[target="_blank"]').tooltip({
+    title: 'This link opens in a new tab.'
+});
+
 $('#loginErr').hide();
 $('#regErr').hide();
 $('#forgotAlert').hide();
