@@ -92,6 +92,7 @@ if(!isset($user) || $user == '')
     
     <?php require_once("./assets/scripts/js-includes.php"); ?>
     <script>
+        $('#socials a').hide();
         $.ajax({
             url: 'https://api.truckersdb.net/v3/user/userProfile.php',
             type: 'POST',
@@ -152,22 +153,22 @@ if(!isset($user) || $user == '')
                     $('#bio').text(res.response.profile.userBio);
                     // Set Discord
                     if(res.response.profile.discordID != '0'){
-                        $('#social-discord').attr('href', 'https://discord.com/users/' + res.response.profile.discordID);
+                        $('#social-discord').show().attr('href', 'https://discord.com/users/' + res.response.profile.discordID);
                         $('#social-discord span').text(res.response.profile.discordName);
                     }
                     // Set Twitter
                     if(res.response.profile.twitterID != '0'){
-                        $('#social-twitter').attr('href', 'https://twitter.com/i/user/' + res.response.profile.twitterID);
+                        $('#social-twitter').show().attr('href', 'https://twitter.com/i/user/' + res.response.profile.twitterID);
                         $('#social-twitter span').text('@' + res.response.profile.twitterName);
                     }
                     // Set TruckersMP
                     if(res.response.profile.tmpID != '0'){
-                        $('#social-truckersmp').attr('href', 'https://truckersmp.com/user/' + res.response.profile.tmpID);
+                        $('#social-truckersmp').show().attr('href', 'https://truckersmp.com/user/' + res.response.profile.tmpID);
                         $('#social-truckersmp span').text(res.response.profile.tmpName);
                     }
                     // Set Steam
                     if(res.response.profile.steamID != '0'){
-                        $('#social-steam').attr('href', 'https://steamcommunity.com/profiles/' + res.response.profile.steamID);
+                        $('#social-steam').show().attr('href', 'https://steamcommunity.com/profiles/' + res.response.profile.steamID);
                         $('#social-steam span').text(res.response.profile.steamName);
                     }
                     // Hide 'Other' Social Media (for now)
