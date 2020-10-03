@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['userID']))
+{
+    header("Location: https://v5.truckersdb.net");
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -20,7 +24,7 @@ session_start();
 		<h2>Thank you for joining us.</h2>
 		<div id="reg-finish">
 			<p style="user-select: none;">There's just one more step you need to complete before gaining access to our platform. Once you have activated your account, you'll be able to take advantage of everything we have to offer here at TruckersDB. <strong>Please check your email inbox for an activation link. If you cannot find it, and it is not in your spam/junk folder, please contact support.</strong></p><br>
-			<img src="assets/img/reg-finish.png" class="img-fluid" style="border-radius: 5px;">
+			<img src="assets/img/reg-finish.png" class="img-fluid" style="border-radius: 5px; margin-bottom: 75px;">
 		</div>
     </div>
     
