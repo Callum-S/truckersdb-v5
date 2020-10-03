@@ -35,7 +35,7 @@ if(!isset($user) || $user == '')
 				<img src="assets/img/default-user.png" id="profileImg" style="background: #fff; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2);">
 				<div id="profileBio" style="text-align: center; border: 1px solid black; border-radius: 3px; padding: 60px 15px 15px; margin-top: -50px; min-height: calc(100% - 100px); display: grid; grid-template-rows: 1fr auto;">
 					<div id="bio-top">
-						<h2 style="line-height: 1; margin: 0 0 10px;"><?php echo($_SESSION['userID']); ?></h2>
+						<h2 style="line-height: 1; margin: 0 0 10px;">User</h2>
 					<?php if($_SESSION['perms']['tdb_staff'] == 1){ ?><span class="badge" style="background: #fc7900; color: #fff;" data-toggle="tooltip" title="Part of the TruckersDB Team">TruckersDB Staff</span><?php } ?>
                     <span class="badge" style="background: #f0b70c; color: #fff;" data-toggle="tooltip" title="Beta Tester for the v5 site">#TDBv5 Tester</span>
                     <span  id="dateJoined" style="display: block;">Joined <strong>January 1970</strong></span>
@@ -61,7 +61,7 @@ if(!isset($user) || $user == '')
                     </div>
                 </div>
                 <div id="userInfo"> <!-- Owned Games, TMP Status, etc. -->
-                    <h3>About <?php echo($_SESSION['userID']); ?></h3>
+                    <h3>About User</h3>
                     <div id="info" style="text-align: center;">
                         Soon&trade;
                         <!-- Things maybe will go here? Possibly a 2-wide or 3-wide grid with the things? -->
