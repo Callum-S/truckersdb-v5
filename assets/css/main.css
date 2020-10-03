@@ -1,5 +1,5 @@
 @import url('reset.css');
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
 body
@@ -27,6 +27,7 @@ h1
 h2
 {
     font-size: 2.1em;
+	margin-bottom: 15px;
 }
 
 h3
@@ -52,6 +53,7 @@ h6
 p
 {
     font-size: 1.1em;
+	user-select: text;
 }
 
 strong, b
@@ -68,6 +70,7 @@ a
 {
     color: #fc7900;
     text-decoration: none;
+	transition: 0.3s;
 }
 
 a:hover
@@ -77,9 +80,83 @@ a:hover
     text-decoration: none;
 }
 
+span.required
+{
+	color: red;
+	font-weight: bold;
+}
+
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(252, 121, 0, 0.5) !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(252, 121, 0, 0.6) !important;
+  outline: 0 none !important;
+}
+
+select
+{
+	padding: 0 12px !important;
+}
+
+::selection {
+  	color: white;
+  	background: #fc7900;
+}
+
+.bg-blurple
+{
+	background: #7289DA;
+	color: white;
+}
+
+.btn-orange
+{
+	color: white;
+	background: rgb(252, 121, 0);
+	border: 1px solid #fc7900;
+}
+
+.btn-orange:hover
+{
+	background: rgb(232, 101, 0);
+	border: 1px solid rgb(232, 101, 0);
+	filter: none;
+	color: white;
+}
+
+.btn-outline-orange
+{
+	color: #fc7900;
+	background: transparent;
+	border: 2px solid #fc7900;
+}
+
+.btn-outline-orange:hover
+{
+	background: #fc7900;
+	color: white;
+	filter: none;
+}
+
 .bg-orange
 {
     background: #fc7900;
+	color: white;
 }
 
 .highlight
@@ -87,18 +164,23 @@ a:hover
     color: #fc7900;
 }
 
-#logoutButton
-{
-    font-size: 1.4em;
-    float: right;
-    margin-right: 15px;
-}
-
 .navbar
 {
     font-weight: 600;
     margin-bottom: 10px;
     box-shadow: 0px 1px 10px 0px rgba(32,32,32,0.5);
+}
+
+.navbar .navbar-brand
+{
+	color: #fc7900;
+}
+
+.navbar .navbar-brand:hover
+{
+    color: #fc7900;
+    filter: brightness(85%);
+    text-decoration: none;
 }
 
 .navbar-light .navbar-nav .nav-link
@@ -116,22 +198,63 @@ a:hover
     border-left: 1px solid #ccc;
 }
 
+#profileImage
+{
+	display: inline-block;
+	background-size: cover !important;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	margin: 0;
+	line-height: 0;
+	padding: 0;
+}
+
+.profile-dropdown .dropdown-menu
+{
+    width: 450px;
+    text-align: center;
+	position: relative;
+	padding: 8px 10px 20px;
+}
+
 .dropdown-header
 {
     text-transform: uppercase;
     text-align: center;
 }
 
-.profile-dropdown .dropdown-menu
+#logoutButton
 {
-    width: 400px;
-    text-align: center;
+    font-size: 1.4em;
+    float: right;
+    margin-right: 15px;
+	position: absolute;
+	top: 8px;
+	right: 0;
+}
+
+#notifButton
+{
+    font-size: 1.4em;
+    float: right;
+    margin-right: 50px;
+	position: absolute;
+	top: 8px;
+	right: 0;
 }
 
 .profile-dropdown .dropdown-menu .col
 {
     display: inline-block;
     width: 49%;
+	padding: 0 15px;
+}
+
+.profile-dropdown .dropdown-menu .dropdown-item
+{
+	padding: 4px 5px;
 }
 
 .profile-dropdown .staff-menu
@@ -145,6 +268,57 @@ a:hover
     width: 49%;
 }
 
+.login-dropdown .dropdown-menu
+{
+    width: 100%;
+    text-align: center;
+	position: relative;
+	padding: 10px 20px;
+}
+
+.login-dropdown .dropdown-menu label
+{
+	padding: 0;
+	margin: 0;
+}
+
+.login-dropdown .dropdown-menu #loginBtn
+{
+	font-size: 1.2em;
+	margin: 25px 0 5px;
+}
+
+.login-dropdown .dropdown-menu #registerBtn
+{
+	margin-top: 15px;
+}
+
+.login-dropdown .dropdown-menu #forgotPwd
+{
+	background: transparent;
+	border: none;
+	transition: filter 0.3s;
+}
+
+.login-dropdown .dropdown-menu #forgotPwd:hover
+{
+	filter: brightness(85%);
+}
+
+#loginErr
+{
+	position: absolute;
+	bottom: 20px;
+	display: block;
+	width: 80%;
+	background: red;
+	color: white;
+	padding: 2px 5px;
+	border-radius: 3px;
+	text-align: center;
+	margin: 0 5%;
+}
+
 
 .hero
 {
@@ -152,7 +326,6 @@ a:hover
     background-size: cover;
     height: 50vh;
     margin-top: -10px;
-    margin-bottom: 10px;
     color: #fff;
     text-align: center;
     display: flex;
@@ -161,51 +334,235 @@ a:hover
     box-shadow: inset 0px -1px 10px 0px rgba(32,32,32,0.5);
 }
 
-.hero .row
+.hero .overlay
 {
-    background: rgba(20, 20, 20, 0.3);
+    background: rgba(20, 20, 20, 0.5);
     width: 100%;
     height: 100%;
+	margin: 0;
 }
 
-.hero .col
+.hero .overlay .hero-txt
 {
-    padding: 100px;
+	height: 15vh;
+	margin: calc((35vh - 15vh) / 2) 0;
+	padding: 0 20px;
 }
 
-.hero .divider
+.hero .overlay .hero-txt h1
 {
-    border-left: 2px solid #fff;
+	font-size: 3.5em;
+	line-height: 1;
 }
 
-.hero h3
+.hero .overlay .hero-txt h4
 {
-    font-size: 2.5em;
+	font-size: 2.25em;
+	line-height: 1;
 }
 
-.hero .btn
+.container h2
 {
-    margin-top: 10px;
-    border-width: 1.5px;
-    font-weight: 600;
-    font-size: 1.1em;
+	margin-top: 20px;
 }
 
-.hero .btn:hover
+
+#latestUpdates
 {
-    filter: brightness(100%);
+	margin-bottom: 30px;
 }
+
+#about p
+{
+	text-align: justify;
+}
+
+#registerForm .col-md
+{
+	margin-bottom: 20px;
+}
+
+#registerForm #password-checker
+{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 10px 0;
+	padding: 5px 10px;
+	position: relative;
+}
+
+#registerForm #password-checker ul
+{
+	list-style-type: circle;
+	list-style-position: inside;
+}
+
+#registerForm #password-checker #pc-meter
+{
+	font-size: 1.15em;
+}
+
+#registerForm #password-checker #pc-meter #pc-meter-strength
+{
+	font-weight: bold;
+}
+
+#registerForm #password-checker #pc-meter #pc-meter-level
+{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 15px;
+	margin-top: 5px;
+	border: 1px solid #000;
+}
+
+#registerForm #password-checker #pc-meter #pc-level-low
+{
+	background: red;
+	border: 1px solid #000;
+}
+#registerForm #password-checker #pc-meter #pc-level-medium
+{
+	background: orange;
+	border: 1px solid #000;
+}
+#registerForm #password-checker #pc-meter #pc-level-high
+{
+	background: green;
+	border: 1px solid #000;
+}
+
+#registerForm #regErr
+{
+	background: red;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid #cc0000;
+	text-align: center;
+}
+
+#registerForm #regErr *
+{
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+#registerForm #regOptIn
+{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+#registerForm #regOptIn input[type=checkbox]
+{
+	width: 20px;
+	height: 20px;
+}
+
+#registerForm #regOptIn label
+{
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+#registerForm #regOptIn p
+{
+	margin: 0 10px;
+	user-select: none;
+	text-align: justify;
+}
+
 
 
 .footer {
-    position: absolute;
-    bottom: 0;
     text-align: center;
     width: 100%;
-    height: 40px;
+    min-height: 40px;
     line-height: 40px;
     background-color: #202020;
     color: #fff;
-    margin: 10px 0 0;
-    padding: 0;
+    margin: 50px 0 0;
+    padding: 0 0 20px;
+}
+
+.footer span {
+	display: block;
+}
+
+@media(max-width: 576px)
+{
+	.unstick
+	{
+		position: static !important;
+	}
+	#regSubmit
+	{
+		width: 100%;
+		margin-top: 10px;
+	}
+	#resetPwd button
+	{
+		width: 100%;
+		margin-top: 10px;
+	}
+}
+
+@media (min-width: 622px) {
+	.hero .overlay .hero-txt
+	{
+		height: 15vh;
+		margin: calc((50vh - 15vh) / 2) 0;
+		padding: 0 20px;
+	}
+}
+
+@media (min-width: 992px) {
+	.hero .overlay .hero-txt
+	{
+		height: 15vh;
+		margin: calc((50vh - 15vh) / 2) 0;
+		padding: 0 20px;
+	}
+	
+	.hero .overlay .hero-txt h1
+	{
+		font-size: 5em;
+		line-height: 1;
+	}
+
+	.hero .overlay .hero-txt h4
+	{
+		font-size: 3.75em;
+		line-height: 1;
+	}
+}
+
+@media(min-width: 576px)
+{
+	.login-dropdown .dropdown-menu
+	{
+		width: 350px;
+	}
+	
+	#registerForm #password-checker #pc-meter
+	{
+		position: absolute;
+		top: 5px;
+		right: 10px;
+	}
+	
+	.footer {
+		padding-bottom: 0;
+	}
+	
+	.footer span:before {
+		content: ' \00a0\00a0 | \00a0\00a0 ';
+	}
+	
+	.footer span {
+		display: inline;
+	}
 }

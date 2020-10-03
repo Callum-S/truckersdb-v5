@@ -1,104 +1,71 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Document</title>
+    <title>Welcome to TruckersDB | Everything you need in one place.</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+	<link rel="icon" href="assets/img/icon.png">
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="#">
-        <i class="fas fa-truck"></i> &nbsp; TruckersDB
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Browse VTCs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Events Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Leaderboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">News &amp; Updates</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                <li class="nav-item dropdown profile-dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> &nbsp; Display Name
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                       <a href="logout.php" id="logoutButton"><i class="fas fa-sign-out-alt highlight"></i></a>
-                       <h5>Hello, <span class="highlight">User</span>!</h5>
-                        <div class="row">
-                            <div class="col">
-                                <h6 class="dropdown-header">User Menu</h6>
-                                <a class="dropdown-item" href="#">Your Dashboard</a>
-                                <a class="dropdown-item" href="#">View Profile</a>
-                                <a class="dropdown-item" href="#">Account Settings</a>
-                                <a class="dropdown-item" href="#"><i class="far fa-life-ring highlight"></i> Support</a>
-                            </div>
-                            <div class="col dropdown-divider-vertical">
-                                <h6 class="dropdown-header">Company Menu</h6>
-                                <a class="dropdown-item" href="#">VTC Dashboard</a>
-                                <a class="dropdown-item" href="#">VTC Calendar</a>
-                                <a class="dropdown-item" href="#">Submit a Job</a>
-                                <a class="dropdown-item" href="#">Downloads</a>
-                            </div>
-                        </div>
-                        <div class="staff-menu">
-                            <h6 class="dropdown-header">Staff Menu</h6>
-                            <a class="dropdown-item" href="#">User Management</a>
-                            <a class="dropdown-item" href="#">Support Tickets</a>
-                            <a class="dropdown-item" href="#">Company Management</a>
-                            <a class="dropdown-item" href="#">Twitter Management</a>
-                            <a class="dropdown-item" href="#">Staff Management</a>
-                            <a class="dropdown-item" href="#">Site Settings</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php require_once("assets/common/navigation.php"); ?>
     
     <div class="hero">
-        <div class="row">
-            <div class="col">
-                <h2>Heading</h2>
-                <h4>Subheading text too! You can even add this much text if you really wanted to...</h4>
-                <a href="#" class="btn btn-outline-light">Button goes here</a>
-            </div>
-            <div class="col divider">
-                <h2>Heading</h2>
-                <h4>Subheading text too!</h4>
-                <a href="#" class="btn btn-outline-light">Button goes here</a>
-            </div>
-        </div>
+		<div class="overlay">
+			<div class="hero-txt">
+				<h1>Welcome to <span class="highlight">TruckersDB</span></h1>
+				<h4>Everything you need in one place.</h4>
+			</div>
+		</div>
     </div>
     
     <div class="container">
-        <h1 class="text-center">Welcome to <span class="highlight">TruckersDB</span></h1>
-        <h4 class="text-center">Everything you need in one place.</h4>
-        
-        <p class="text-muted">Content goes here.</p>
+		<h2>Latest News &amp; Updates</h2>
+		<div id="latestUpdates">
+			<div class="card" style="background: rgb(240, 240, 240)">
+			  <div class="card-body">
+				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
+
+	</p>
+				<a href="#" class="btn btn-orange">Read More</a>
+			  </div>
+			</div><br>
+			<div class="card" style="background: rgb(240, 240, 240)">
+			  <div class="card-body">
+				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
+
+	</p>
+				<a href="#" class="btn btn-orange">Read More</a>
+			  </div>
+			</div><br>
+			<div class="card" style="background: rgb(240, 240, 240)">
+			  <div class="card-body">
+				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
+
+	</p>
+				<a href="#" class="btn btn-orange">Read More</a>
+			  </div>
+			</div>
+		</div>
+		<div id="about">
+			<h2>What is TruckersDB?</h2>
+			<p>TruckersDB is the all-in-one solution for VTCs, drivers and event organizers to manage everything trucking. From advertising and applications to job logging and leaderboards, we've got you covered. It's never been easier to join a company that suits you - or set up your own! With a huge variety of tools and features for everyone, including almost full customization across the entire platform, our aim is to cut the stress and time spent on simple day-to-day tasks, allowing you to get on with the big things.</p>
+			<p>If you're reading this, welcome. Thank you for being a part of the team working to shape this platform into the perfect system for the community. We have a massive amount of features to include, and even more ideas for the future. As you can see, great progress has been made, but we have a long way to go, and we couldn't do it without you. &#10084; Keep an eye on this site and make sure to watch out for updates in <a href="https://discord.truckersdb.net">our Discord server</a>!</p>
+		</div>
     </div>
     
     <footer class="footer">
       <div class="container">
-        TruckersDB &nbsp; | &nbsp; <a href="#">GDPR/Privacy Notice</a> &nbsp; | &nbsp; <a href="#">Terms of Service</a>
+		  TruckersDB <span><a href="#">GDPR/Privacy Notice</a></span> <span><a href="#">Terms of Service</a></span>
       </div>
     </footer>
     
