@@ -36,8 +36,7 @@ if(!isset($user) || $user == '')
 				<div id="profileBio" style="text-align: center; border: 1px solid black; border-radius: 3px; padding: 60px 15px 15px; margin-top: -50px; min-height: calc(100% - 100px); display: grid; grid-template-rows: 1fr auto;">
 					<div id="bio-top">
 						<h2 style="line-height: 1; margin: 0 0 10px;">User</h2>
-					<?php if($_SESSION['perms']['tdb_staff'] == 1){ ?><span class="badge" style="background: #fc7900; color: #fff;" data-toggle="tooltip" title="Part of the TruckersDB Team">TruckersDB Staff</span><?php } ?>
-                    <span class="badge" style="background: #f0b70c; color: #fff;" data-toggle="tooltip" title="Beta Tester for the v5 site">#TDBv5 Tester</span>
+                        <div id="badges"></div>
                     <span  id="dateJoined" style="display: block;">Joined <strong>January 1970</strong></span>
 					<span style="display: block; margin-top: 20px;" id="bio"></span>
 					</div>
@@ -173,6 +172,16 @@ if(!isset($user) || $user == '')
                     }
                     // Hide 'Other' Social Media (for now)
                     $('#social-other').hide();
+                    
+                    // Profile Badges
+                    if(res.response.profile.tdbStaff == true){
+                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;" data-toggle="tooltip" title="Part of the TruckersDB Team">TruckersDB Staff</span>')
+                    }
+                    if(res.response.profile.betaTester == true){
+                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;" title="Helped us create and test this site">#TDBv5 Tester</span>');
+                    }
+                    // Initialize tooltips for badges
+                    $('.badge').tooltip();
                 } else{
                     if(res.error == 'User does not exist.'){
                         window.location.replace(location.pathname);
