@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['userID']))
+{
+    header('Location: https://v5.truckersdb.net');
+}
+
+$user = filter_var($_GET['user'], FILTER_SANITIZE_NUMBER_INT);
+if(!isset($user) || $user == '')
+{
+    $user = $_SESSION['userID'];
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -8,7 +20,7 @@ session_start();
     <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><?php echo('Beta Tester '.$_SESSION['userID']); ?> | TruckersDB</title>
+    <title>User Profile | TruckersDB</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/profile.css">
@@ -84,12 +96,13 @@ session_start();
             url: 'https://api.truckersdb.net/v3/user/userProfile.php',
             type: 'POST',
             data: {
-                userID: <?php echo($_SESSION['userID']); ?>
+                userID: <?php echo($user); ?>
             },
             success: function(res){
                 if(res.status == 1){
                     // Add display name
                     $('#bio-top h2').text(res.response.profile.displayName);
+                    document.title = res.response.profile.displayName + ' | TruckersDB';
                     $('#userInfo h3').text('About ' + res.response.profile.displayName);
                     // Display join date
                     var d = new Date(res.response.profile.dateCreated);
@@ -160,7 +173,12 @@ session_start();
                     // Hide 'Other' Social Media (for now)
                     $('#social-other').hide();
                 } else{
-                    alert('Error: ' + res.error);
+                    if(res.error == 'User does not exist.'){
+                        window.location.replace(location.pathname);
+                    } else{
+                        alert('Error: ' + res.error);
+                        window.location.href('https://v5.truckersdb.net');
+                    }
                 }
             }
         });
