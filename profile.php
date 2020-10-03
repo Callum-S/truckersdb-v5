@@ -175,7 +175,7 @@ if(!isset($user) || $user == '')
                     
                     // Profile Badges
                     if(res.response.profile.tdbStaff == true){
-                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;" data-toggle="tooltip" title="Part of the TruckersDB Team">TruckersDB Staff</span>')
+                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;" title="Part of the TruckersDB Team">TruckersDB Staff</span>')
                     }
                     if(res.response.profile.betaTester == true){
                         $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;" title="Helped us create and test this site">#TDBv5 Tester</span>');
