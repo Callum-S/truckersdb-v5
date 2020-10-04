@@ -85,14 +85,6 @@
     margin-left: 5px;
 }
 
-    #achievements
-    {
-        overflow-y: hidden;
-    }
-    #achievements:hover
-    {
-        overflow-y: auto;
-    }
     #achievements::-webkit-scrollbar
     {
         width: 3px;
@@ -108,9 +100,10 @@
     }
 
 #achievements{
-    height: 200px;
-    max-height: 200px;
+    height: 250px;
+    max-height: 250px;
     position: relative;
+    overflow-y: auto;
 }
 #no-achievements{
     font-size: 20px;
@@ -124,19 +117,18 @@
 .achievement
 {
     display: grid;
-    grid-template-columns: 1fr 7fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr;
     grid-column-gap: 10px;
-    height: 50px;
+    min-height: 50px;
     margin: 0 0 10px;
 }
 .achievement .achievementIcon
 {
     grid-row: 1 / span 2;
-    height: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto 0;
     padding: 5px;
-    max-height: 64px;
     border: 1px solid #fc7900;
     border-radius: 3px;
     box-shadow: inset 0px 0px 3px 1px rgba(232,121,0,1);

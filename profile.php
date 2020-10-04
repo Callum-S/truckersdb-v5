@@ -61,13 +61,9 @@ if(!isset($user) || $user == '')
                 </div>
                 <div id="userInfo" class="row"> <!-- Owned Games, TMP Status, etc. -->
                     <div class="col">
-                        <h3>Achievements <small id="achievement-count">4</small></h3>
+                        <h3>Achievements <small id="achievement-count">0</small></h3>
                         <div id="achievements">
                             <span id="no-achievements">No achievements found!</span>
-                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
-                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
-                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
-                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
                         </div>
                     </div>
                     <div class="col">
@@ -101,7 +97,6 @@ if(!isset($user) || $user == '')
     <?php require_once("./assets/scripts/js-includes.php"); ?>
     <script>
         $('#socials a').hide();
-        $('#no-achievements').hide(); // For now -- this will be shown by default when implemented
         $.ajax({
             url: 'https://api.truckersdb.net/v3/user/userProfile.php',
             type: 'POST',
@@ -191,6 +186,24 @@ if(!isset($user) || $user == '')
                     }
                     // Initialize tooltips for badges
                     $('.badge').tooltip();
+                    
+                    // Get Achievements
+                    $.ajax({
+                        url: 'https://api.truckersdb.net/v3/user/userAchievements.php',
+                        type: 'POST',
+                        data: {
+                            userID: <?php echo($user); ?>
+                        },
+                        success: function(res){
+                            if(res.status == 1 && res.response.achievementCount > 0){
+                                $('#achievement-count').text(res.response.achievementCount);
+                                $('#no-achievements').hide();
+                                res.response.achievements.forEach(function(achievement){
+                                    $('#achievements').append('<div class="achievement"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
+                                });
+                            }
+                        }
+                    });
                 } else{
                     if(res.error == 'User does not exist.'){
                         window.location.replace(location.pathname);
