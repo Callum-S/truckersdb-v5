@@ -104,49 +104,9 @@ if(!isset($user) || $user == '')
                     $('#bio-top h2').text(res.response.profile.displayName);
                     document.title = res.response.profile.displayName + ' | TruckersDB';
                     // Display join date
-                    var d = new Date(res.response.profile.dateCreated);
-                    var m = d.getMonth() + 1;
-                    switch(m){
-                        case 1:
-                            m = 'January';
-                            break;
-                        case 2:
-                            m = 'February';
-                            break;
-                        case 3:
-                            m = 'March';
-                            break;
-                        case 4:
-                            m = 'April';
-                            break;
-                        case 5:
-                            m = 'May';
-                            break;
-                        case 6:
-                            m = 'June';
-                            break;
-                        case 7:
-                            m = 'July';
-                            break;
-                        case 8:
-                            m = 'August';
-                            break;
-                        case 9:
-                            m = 'September';
-                            break;
-                        case 10:
-                            m = 'October';
-                            break;
-                        case 11:
-                            m = 'November';
-                            break;
-                        case 12:
-                            m = 'December';
-                            break;
-                    }
-                    var y = d.getFullYear();
-                    var dateJoined = m + ' ' + y;
-                    $('#dateJoined strong').text(dateJoined);
+                    var dateJoined = formatTimestamp(res.response.profile.dateCreated);
+                    console.log(dateJoined);
+                    $('#dateJoined strong').text(dateJoined.month + ' ' + dateJoined.year);
                     // Set user bio
                     $('#bio').text(res.response.profile.userBio);
                     // Set Discord
@@ -192,51 +152,9 @@ if(!isset($user) || $user == '')
                                 $('#achievement-count').text(res.response.achievementCount);
                                 $('#no-achievements').hide();
                                 res.response.achievements.forEach(function(achievement){
-                                    var date = new Date(achievement.dateAchieved);
-                                    var d = date.getDate();
-                                    var m = date.getMonth() + 1;
-                                    switch(m){
-                                        case 1:
-                                            m = 'January';
-                                            break;
-                                        case 2:
-                                            m = 'February';
-                                            break;
-                                        case 3:
-                                            m = 'March';
-                                            break;
-                                        case 4:
-                                            m = 'April';
-                                            break;
-                                        case 5:
-                                            m = 'May';
-                                            break;
-                                        case 6:
-                                            m = 'June';
-                                            break;
-                                        case 7:
-                                            m = 'July';
-                                            break;
-                                        case 8:
-                                            m = 'August';
-                                            break;
-                                        case 9:
-                                            m = 'September';
-                                            break;
-                                        case 10:
-                                            m = 'October';
-                                            break;
-                                        case 11:
-                                            m = 'November';
-                                            break;
-                                        case 12:
-                                            m = 'December';
-                                            break;
-                                    }
-                                    var y = date.getFullYear();
-                                    var dateAchieved = d + ' ' + m + ' ' + y;
+                                    var dateAchieved = formatTimestamp(achievement.dateAchieved);
                                     
-                                    $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
+                                    $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
                                 });
                                 $('.achievement').tooltip();
                             }
