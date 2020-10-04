@@ -87,11 +87,7 @@ if(!isset($user) || $user == '')
 		</div>
     </div>
     
-    <footer class="footer">
-      <div class="container">
-		  TruckersDB <span><a href="#">GDPR/Privacy Notice</a></span> <span><a href="#">Terms of Service</a></span>
-      </div>
-    </footer>
+    <?php require_once("./assets/common/footer.php"); ?>
     
     <?php require_once("./assets/scripts/js-includes.php"); ?>
     <script>
