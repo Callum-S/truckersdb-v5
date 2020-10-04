@@ -51,12 +51,12 @@ if(!isset($user) || $user == '')
 			</div>
 			<div id="profileMain">
 				<div id="userStats">
-                    <h3>User Statistics</h3>
+                    <!--<h3>User Statistics</h3>-->
                     <div id="stats">
                         <div><h4>99,999,999<small> MI</small></h4><span>Distance Driven</span></div>
                         <div><h4>99,999</h4><span>Deliveries Made</span></div>
                         <div><h4>9,999</h4><span>Events Attended</span></div>
-                        <div><h4>------</h4><span>------</span></div>
+                        <div><h4>99,999<small> HRS</small></h4><span>Total Hours</span></div>
                     </div>
                 </div>
                 <div id="userInfo"> <!-- Owned Games, TMP Status, etc. -->
