@@ -1,15 +1,14 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['userID']))
-{
-    header('Location: https://v5.truckersdb.net');
-}
-
 $user = filter_var($_GET['user'], FILTER_SANITIZE_NUMBER_INT);
 if(!isset($user) || $user == '')
 {
-    $user = $_SESSION['userID'];
+    if(!isset($_SESSION['userID'])){
+        header('Location: https://v5.truckersdb.net');
+    } else{
+        $user = $_SESSION['userID'];
+    }
 }
 
 ?>
@@ -179,13 +178,11 @@ if(!isset($user) || $user == '')
                     
                     // Profile Badges
                     if(res.response.profile.tdbStaff == true){
-                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;" title="Part of the TruckersDB Team">TruckersDB Staff</span>')
+                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;">TruckersDB Staff</span>')
                     }
                     if(res.response.profile.betaTester == true){
-                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;" title="Helped us create and test this site">#TDBv5 Tester</span>');
+                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;>#TDBv5 Tester</span>');
                     }
-                    // Initialize tooltips for badges
-                    $('.badge').tooltip();
                     
                     // Get Achievements
                     $.ajax({
@@ -199,8 +196,53 @@ if(!isset($user) || $user == '')
                                 $('#achievement-count').text(res.response.achievementCount);
                                 $('#no-achievements').hide();
                                 res.response.achievements.forEach(function(achievement){
-                                    $('#achievements').append('<div class="achievement"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
+                                    var date = new Date(achievement.dateAchieved);
+                                    var d = date.getDate();
+                                    var m = date.getMonth() + 1;
+                                    switch(m){
+                                        case 1:
+                                            m = 'January';
+                                            break;
+                                        case 2:
+                                            m = 'February';
+                                            break;
+                                        case 3:
+                                            m = 'March';
+                                            break;
+                                        case 4:
+                                            m = 'April';
+                                            break;
+                                        case 5:
+                                            m = 'May';
+                                            break;
+                                        case 6:
+                                            m = 'June';
+                                            break;
+                                        case 7:
+                                            m = 'July';
+                                            break;
+                                        case 8:
+                                            m = 'August';
+                                            break;
+                                        case 9:
+                                            m = 'September';
+                                            break;
+                                        case 10:
+                                            m = 'October';
+                                            break;
+                                        case 11:
+                                            m = 'November';
+                                            break;
+                                        case 12:
+                                            m = 'December';
+                                            break;
+                                    }
+                                    var y = date.getFullYear();
+                                    var dateAchieved = d + ' ' + m + ' ' + y;
+                                    
+                                    $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
                                 });
+                                $('.achievement').tooltip();
                             }
                         }
                     });
