@@ -85,8 +85,8 @@
     margin-left: 5px;
 }
 #achievements{
-    height: 175px;
-    max-height: 175px;
+    height: 200px;
+    max-height: 200px;
     position: relative;
     overflow-y: auto;
 }
