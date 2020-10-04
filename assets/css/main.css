@@ -2,6 +2,19 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
+::-webkit-scrollbar
+{
+    width: 7px;
+}
+::-webkit-scrollbar-track
+{
+    background: #ddd;
+}
+::-webkit-scrollbar-thumb
+{
+    background: #fc7900;
+}
+
 body
 {
     font-family: 'Cairo', sans-serif;

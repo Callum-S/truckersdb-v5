@@ -84,11 +84,33 @@
     vertical-align: middle;
     margin-left: 5px;
 }
+
+    #achievements
+    {
+        overflow-y: hidden;
+    }
+    #achievements:hover
+    {
+        overflow-y: auto;
+    }
+    #achievements::-webkit-scrollbar
+    {
+        width: 3px;
+        border-radius: 50px;
+    }
+    #achievements::-webkit-scrollbar-track
+    {
+        border-radius: 50px;
+    }
+    #achievements::-webkit-scrollbar-thumb
+    {
+        border-radius: 50px;
+    }
+
 #achievements{
     height: 200px;
     max-height: 200px;
     position: relative;
-    overflow-y: auto;
 }
 #no-achievements{
     font-size: 20px;
