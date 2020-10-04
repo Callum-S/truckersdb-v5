@@ -65,15 +65,74 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-#userStats, #userInfo, #companyDetails, #recentJobs
+#userStats, #userInfo .col, #companyDetails, #recentJobs
 {
     margin-bottom: 30px;
+}
+#userInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#achievement-count{
+    font-size: 50%;
+    margin: 0;
+    line-height: 0;
+    background: #fc7900;
+    padding: 0 10px;
+    border-radius: 50px;
+    color: #fff;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+#achievements{
+    height: 175px;
+    max-height: 175px;
+    position: relative;
+    overflow-y: auto;
+}
+#no-achievements{
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.achievement
+{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 10px;
+    height: 50px;
+    margin: 0 0 10px;
+}
+.achievement .achievementIcon
+{
+    grid-row: 1 / span 2;
+    height: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    max-height: 64px;
+    border: 1px solid #fc7900;
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 3px 1px rgba(232,121,0,1);
+}
+.achievement .achievementTitle
+{
+    font-weight: bold;
+    font-size: 18px;
 }
 @media(max-width:768px)
 {
     #stats
     {
         grid-template-columns: 1fr 1fr;
+    }
+    #userInfo
+    {
+        grid-template-columns: 1fr;
     }
 }
 @media(max-width: 992px)

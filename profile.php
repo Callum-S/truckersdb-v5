@@ -59,15 +59,24 @@ if(!isset($user) || $user == '')
                         <div><h4>99,999<small> HRS</small></h4><span>Total Hours</span></div>
                     </div>
                 </div>
-                <div id="userInfo"> <!-- Owned Games, TMP Status, etc. -->
-                    <h3>About User</h3>
-                    <div id="info" style="text-align: center;">
+                <div id="userInfo" class="row"> <!-- Owned Games, TMP Status, etc. -->
+                    <div class="col">
+                        <h3>Achievements <small id="achievement-count">4</small></h3>
+                        <div id="achievements">
+                            <span id="no-achievements">No achievements found!</span>
+                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
+                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
+                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
+                            <div class="achievement"><img class="achievementIcon" src="assets/img/achievements/test.png"><span class="achievementTitle">Testing, Testing, 1, 2, 3</span><span class="achievementSummary">The achievements look fancy!</span></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Another Heading</h3>
                         Soon&trade;
-                        <!-- Things maybe will go here? Possibly a 2-wide or 3-wide grid with the things? -->
                     </div>
                 </div>
                 <div id="companyDetails"> <!-- Remove this if they aren't part of a company?? -->
-                    <h3>Company Details</h3>
+                    <h3>TestVTC</h3>
                     <div id="details" style="text-align: center;">
                         Soon&trade;
                         <!-- Company Details will go here when a layout is decided! -->
@@ -92,6 +101,7 @@ if(!isset($user) || $user == '')
     <?php require_once("./assets/scripts/js-includes.php"); ?>
     <script>
         $('#socials a').hide();
+        $('#no-achievements').hide(); // For now -- this will be shown by default when implemented
         $.ajax({
             url: 'https://api.truckersdb.net/v3/user/userProfile.php',
             type: 'POST',
@@ -103,7 +113,6 @@ if(!isset($user) || $user == '')
                     // Add display name
                     $('#bio-top h2').text(res.response.profile.displayName);
                     document.title = res.response.profile.displayName + ' | TruckersDB';
-                    $('#userInfo h3').text('About ' + res.response.profile.displayName);
                     // Display join date
                     var d = new Date(res.response.profile.dateCreated);
                     var m = d.getMonth() + 1;
