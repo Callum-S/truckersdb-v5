@@ -181,7 +181,7 @@ if(!isset($user) || $user == '')
                         $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;">TruckersDB Staff</span>')
                     }
                     if(res.response.profile.betaTester == true){
-                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;>#TDBv5 Tester</span>');
+                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;">#TDBv5 Tester</span>');
                     }
                     
                     // Get Achievements
