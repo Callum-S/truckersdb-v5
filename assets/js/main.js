@@ -227,7 +227,18 @@ $('#regSubmit').click(function(e){
 				} else{
 					$('#regLoading').hide();
 					$('#regSubmit').attr("disabled", false);
-					alert('An error occured: ' + res.error);
+					if(res.error == 'Username already taken!' || res.error == 'Email address already taken!'){
+						$('#regErr p').html(res.error);
+						$('#regErr').fadeIn();
+						setTimeout(function(){
+							$('#regErr').fadeOut();
+							setTimeout(function(){
+								$('#regErr p').html("Check that all the information you've entered is correct.<br>If the problem persists, contact support.");
+							}, 500);
+						}, 2000);
+					} else{
+						alert('An error occured: ' + res.error);
+					}
 				}
 			}
 		});
