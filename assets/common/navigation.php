@@ -88,6 +88,7 @@
 							<div class="form-group">
 								<label for="loginPass">Password</label>
 								<input type="password" class="form-control" id="loginPass" required minlength="8" maxlength="20">
+                                <button type="button" class="btn btn-sm passwordEye" data-input="loginPass"><i class="fas fa-eye"></i></button>
 							</div>
 							<button type="submit" class="btn btn-orange btn-block" id="loginBtn" style="position: relative;">
 								<span class="spinner-border text-light" id="loginSpinner" role="status" aria-hidden="true" style="position: absolute; left: 15px; top: 10px; height: 20px; width: 20px;"></span>

@@ -382,6 +382,11 @@ function ValidateRegForm(){
 	}
 }
 
+$('.passwordEye').click(function(){
+    var inputID = $(this).attr('data-input');
+    ($('#' + inputID).attr('type') == 'password') ? $('#' + inputID).attr('type', 'text') : $('#' + inputID).attr('type', 'password');
+    ($('#' + inputID).attr('type') == 'password') ? $(this).html('<i class="fas fa-eye"></i>') : $(this).html('<i class="fas fa-eye-slash"></i>');
+});
 
 
 function formatTimestamp(timestamp)

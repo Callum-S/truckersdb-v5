@@ -52,6 +52,7 @@ if(isset($_SESSION['userID']))
 				<div class="col-md">
 					<label for="regPassword">Choose a Password<span class="required">*</span></label>
 					<input id="regPassword" class="form-control" type="password">
+                    <button type="button" class="btn btn-sm passwordEye" data-input="regPassword"><i class="fas fa-eye"></i></button>
 					<div id="password-checker">
 						Your password should contain at least:
 						<ul>
@@ -73,6 +74,7 @@ if(isset($_SESSION['userID']))
 				<div class="col-md">
 					<label for="regPasswordConfirm">Confirm Password<span class="required">*</span></label>
 					<input id="regPasswordConfirm" class="form-control" type="password">
+                    <button type="button" class="btn btn-sm passwordEye" data-input="regPasswordConfirm"><i class="fas fa-eye"></i></button>
 					<small id="regPasswordConfirmHelp" class="form-text text-muted">Make sure you copy your password exactly!</small>
 					<br>
 					<label for="regBirth">Month / Year of Birth<span class="required">*</span></label>

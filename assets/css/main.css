@@ -395,6 +395,13 @@ select
 	margin-bottom: 20px;
 }
 
+.passwordEye
+{
+    float: right;
+    margin-top: -35px;
+    margin-right: 3px;
+}
+
 #registerForm #password-checker
 {
 	border: 1px solid #ddd;
