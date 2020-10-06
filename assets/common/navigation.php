@@ -49,13 +49,13 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-calendar-alt highlight"></i>&nbsp; Company Events</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-dolly highlight"></i>&nbsp; Submit a Job</a>
 								<a class="dropdown-item" href="#"><i class="fas fa-download highlight"></i>&nbsp; Downloads</a>
-								<?php } ?>
-								<?php if ( (isset($_SESSION['canManageCompany']) && $_SESSION['canManageCompany'] == 1) ) { ?>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cogs highlight"></i>&nbsp; Company Settings</a>
-								<a class="dropdown-item" href="#"><i class="fas fa-id-card highlight"></i>&nbsp; View Company Profile</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-clipboard-check highlight"></i>&nbsp; Manage Applications</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-plus-square highlight"></i>&nbsp; Additional Features</a>
-								<?php } else { ?>
+                                    <?php if ( (isset($_SESSION['canManageCompany']) && $_SESSION['canManageCompany'] == 1) ) { ?>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-cogs highlight"></i>&nbsp; Company Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-id-card highlight"></i>&nbsp; View Company Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-clipboard-check highlight"></i>&nbsp; Manage Applications</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-plus-square highlight"></i>&nbsp; Additional Features</a>
+                                <?php     }
+                                } else { ?>
 								<a class="dropdown-item" href="#"><i class="fas fa-calendar-alt highlight"></i> Create a Company</a>
 								<?php } ?>
                             </div>
