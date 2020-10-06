@@ -28,12 +28,12 @@
 				<?php if ( isset($_SESSION['userID']) && $_SESSION['userID'] != '' ) { ?>
                 <li class="nav-item dropdown profile-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span id="profileImage" style="background: url('assets/img/default-user.png') no-repeat center;"></span> &nbsp; Beta Tester <?php echo($_SESSION['userID']); ?>
+						<span id="profileImage" style="background: url('assets/img/default-user.png') no-repeat center;"></span> &nbsp; <?php echo($_SESSION['displayName']); ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                        <a href="logout.php" id="logoutButton"><i class="fas fa-sign-out-alt highlight"></i></a>
 					   <!--<a href="#" id="notifButton"><i class="far fa-bell highlight"></i></a>-->
-                       <h5>Hello, <span class="highlight">Beta Tester <?php echo($_SESSION['userID']); ?></span>!</h5>
+                       <h5>Hello, <span class="highlight"><?php echo($_SESSION['displayName']); ?></span>!</h5>
                         <div class="row">
                             <div class="col">
                                 <h6 class="dropdown-header">Your Account</h6>
@@ -50,7 +50,7 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-dolly highlight"></i>&nbsp; Submit a Job</a>
 								<a class="dropdown-item" href="#"><i class="fas fa-download highlight"></i>&nbsp; Downloads</a>
 								<?php } ?>
-								<?php if ( (isset($_SESSION['perms']['company_manage']) && $_SESSION['perms']['company_manage'] == 1) || (isset($_SESSION['perms']['company_owner']) && $_SESSION['perms']['company_owner'] == 1) ) { ?>
+								<?php if ( (isset($_SESSION['canManageCompany']) && $_SESSION['canManageCompany'] == 1) ) { ?>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cogs highlight"></i>&nbsp; Company Settings</a>
 								<a class="dropdown-item" href="#"><i class="fas fa-id-card highlight"></i>&nbsp; View Company Profile</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-clipboard-check highlight"></i>&nbsp; Manage Applications</a>
@@ -60,7 +60,7 @@
 								<?php } ?>
                             </div>
                         </div>
-                        <?php if ( (isset($_SESSION['perms']['tdb_staff']) && $_SESSION['perms']['tdb_staff'] == 1) ) { ?>
+                        <?php if ( (isset($_SESSION['tdbStaff']) && $_SESSION['tdbStaff'] == 1) ) { ?>
 						<div class="staff-menu">
                             <h6 class="dropdown-header">Staff Menu</h6>
                             <a class="dropdown-item" href="#">User Management</a>

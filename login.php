@@ -17,13 +17,14 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
 		{
 			$lang = 'en';
 		}
-		if ( isset($_POST['perms']) && $_POST['perms'] != '' )
+		if ( isset($_POST['tdbStaff']) && $_POST['tdbStaff'] != '' )
 		{
-			$perms = $_POST['perms'];
 			$_SESSION['userID'] = $userID;
 			$_SESSION['lang'] = $lang;
-			$_SESSION['perms'] = $perms;
-			$_SESSION['companyID'] = $_POST['companyID'];
+            $_SESSION['displayName'] = $displayName;
+			$_SESSION['tdbStaff'] = $tdbStaff;
+			$_SESSION['companyID'] = (isset($_POST['companyID']) && $_POST['companyID'] != '') ? $_POST['companyID'] : 0;
+            $_SESSION['canManageCompany'] = (isset($_POST['canManageCompany']) && $_POST['canManageCompany'] != '') ? $_POST['canManageCompany'] : 0;
 			$response = array("status" => 1, "response" => array("userID" => $userID, "message" => "Login successful!"));
 		}
 		else
