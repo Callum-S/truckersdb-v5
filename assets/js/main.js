@@ -160,18 +160,17 @@ $('#loginBtn').click(function(e){
 		},
 		success: function(res){
 			if(res.status == 1){
-				var userID = res.response.userID;
-				var lang = res.response.lang;
-				var perms = res.response.perms;
 				$.ajax({
 					url: 'login.php',
 					type: 'POST',
 					cache: false,
 					data: {
-						userID: userID,
-						lang: lang,
-						perms: perms,
-						companyID: res.response.companyID
+						userID: res.response.userID,
+						lang: res.response.lang,
+						displayName: res.response.displayName,
+                        tdbStaff: res.response.tdbStaff,
+						companyID: res.response.companyID,
+                        canManageCompany: res.response.canManageCompany
 					},
 					success: function(res){
 						if(res.status == 1){
