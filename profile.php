@@ -31,7 +31,8 @@ if(!isset($user) || $user == '')
     <div class="container"><br>
 		<div id="profile" style="display: grid; grid-gap: 10px; min-height: calc(100vh - 180px);">
 			<div id="profileSide" style="position: relative;">
-				<img src="assets/img/default-user.png" id="profileImg" style="background: #fff; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2);">
+                <button id="editProfileBtn" class="btn btn-lg" data-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></button>
+				<img src="assets/img/default-user.png" id="profileImg" style="background: #fff; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2);"> <!-- THIS MAY NEED CHANGING!!! -->
 				<div id="profileBio" style="text-align: center; border: 1px solid black; border-radius: 3px; padding: 60px 15px 15px; margin-top: -50px; min-height: calc(100% - 100px); display: grid; grid-template-rows: 1fr auto;">
 					<div id="bio-top">
 						<h2 style="line-height: 1; margin: 0 0 10px;">User</h2>

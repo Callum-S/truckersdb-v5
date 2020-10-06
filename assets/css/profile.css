@@ -2,6 +2,14 @@
 {
     grid-template-columns: 1fr 3fr;
 }
+#profileSide #editProfileBtn
+{
+    position: absolute;
+    top: 100px;
+    /* right: 0; */
+    color: #fc7900;
+    font-size: 25px;
+}
 #profileBio #bio
 {
     margin-bottom: 50px;
