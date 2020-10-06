@@ -130,6 +130,11 @@ select
   	background: #fc7900;
 }
 
+input[type="password"]
+{
+    padding-right: 40px;
+}
+
 .bg-blurple
 {
 	background: #7289DA;
