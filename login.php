@@ -21,8 +21,8 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
 		{
 			$_SESSION['userID'] = $userID;
 			$_SESSION['lang'] = $lang;
-            $_SESSION['displayName'] = $displayName;
-			$_SESSION['tdbStaff'] = $tdbStaff;
+            $_SESSION['displayName'] = $_POST['displayName'];
+			$_SESSION['tdbStaff'] = $_POST['tdbStaff'];
 			$_SESSION['companyID'] = (isset($_POST['companyID']) && $_POST['companyID'] != '') ? $_POST['companyID'] : 0;
             $_SESSION['canManageCompany'] = (isset($_POST['canManageCompany']) && $_POST['canManageCompany'] != '') ? $_POST['canManageCompany'] : 0;
 			$response = array("status" => 1, "response" => array("userID" => $userID, "message" => "Login successful!"));
