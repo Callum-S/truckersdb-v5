@@ -87,7 +87,7 @@
 							</div>
 							<div class="form-group">
 								<label for="loginPass">Password</label>
-								<input type="password" class="form-control" id="loginPass" required minlength="8" maxlength="20">
+								<input type="password" class="form-control" id="loginPass" required minlength="8">
                                 <button type="button" class="btn btn-sm passwordEye" data-input="loginPass"><i class="fas fa-eye"></i></button>
 							</div>
 							<button type="submit" class="btn btn-orange btn-block" id="loginBtn" style="position: relative;">
