@@ -126,7 +126,7 @@ if(!isset($user) || $user == '')
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="editUserProfile">
+      <form id="editUserProfile" autocomplete="off">
           <div class="modal-body">
               <div class="form-group">
                   <label for="editDisplayName">Display Name</label>
