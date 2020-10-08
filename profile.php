@@ -126,8 +126,8 @@ if(!isset($user) || $user == '')
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-          <form id="editUserProfile">
+      <form id="editUserProfile">
+          <div class="modal-body">
               <div class="form-group">
                   <label for="editDisplayName">Display Name</label>
                   <input type="text" class="form-control" id="editDisplayName" maxlength="20">
@@ -138,9 +138,8 @@ if(!isset($user) || $user == '')
                   <textarea class="form-control" id="editUserBio" maxlength="255" style="resize: none;"></textarea>
                   <small id="editUserBioHelp" class="form-text text-muted"><span id="bioCharCount">255</span> characters remaining</small>
               </div>
-          </form>
           <span>You can manage your linked accounts and change other settings on the <a href="#" data-toggle="tooltip" title="This will NOT save your changes.">Account Settings</a> page.</span>
-      </div>
+        </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light editProfileCancel" data-dismiss="modal" style="width: 20%;">Cancel</button>
             <button type="submit" id="editProfileSave" class="btn btn-orange" style="position: relative; width: 60%;">
@@ -148,6 +147,7 @@ if(!isset($user) || $user == '')
                 Save changes
             </button>
         </div>
+    </form>
     </div>
   </div>
 </div>
