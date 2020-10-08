@@ -143,7 +143,7 @@ if(!isset($user) || $user == '')
       </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light editProfileCancel" data-dismiss="modal" style="width: 20%;">Cancel</button>
-            <button type="button" id="editProfileSave" class="btn btn-orange" style="position: relative; width: 60%;">
+            <button type="submit" id="editProfileSave" class="btn btn-orange" style="position: relative; width: 60%;">
                 <span class="spinner-border text-light" id="editProfileSpinner" role="status" aria-hidden="true" style="position: absolute; left: 15px; top: 8px; height: 20px; width: 20px;"></span>
                 Save changes
             </button>
