@@ -179,7 +179,8 @@ if(!isset($user) || $user == '')
                             $('#bioCharCount').text(charsLeft);
                         });
 
-                        $('#editProfileSave').click(function(){
+                        $('#editUserProfile').submit(function(e){
+                            e.preventDefault();
                             var newDisplayName = $('#editDisplayName').val();
                             var newUserBio = $('#editUserBio').val();
                             $('#editProfileSpinner').show();
