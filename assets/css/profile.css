@@ -81,17 +81,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-#achievement-count{
-    font-size: 50%;
-    margin: 0;
-    line-height: 0;
-    background: #fc7900;
-    padding: 0 10px;
-    border-radius: 50px;
-    color: #fff;
-    vertical-align: middle;
-    margin-left: 5px;
-}
 
     #achievements::-webkit-scrollbar
     {
@@ -106,6 +95,8 @@
     {
         border-radius: 50px;
     }
+
+#viewAllAchievements{display:none;}
 
 #achievements{
     height: 250px;
@@ -141,11 +132,47 @@
     border-radius: 3px;
     box-shadow: inset 0px 0px 3px 1px rgba(232,121,0,1);
 }
+#allAchievements
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+#allAchievements .achievement
+{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr auto;
+    grid-column-gap: 10px;
+    min-height: 50px;
+    margin: 0 0 10px;
+}
+#allAchievements .achievement .achievementIcon
+{
+    grid-row: 1 / span 3;
+    width: 100%;
+    margin: auto 0;
+    padding: 5px;
+    border: 1px solid #fc7900;
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 3px 1px rgba(232,121,0,1);
+}
+#allAchievements .achievement .dateAchieved
+{
+    color: #777;
+    font-size: 80%;
+}
 .achievement .achievementTitle
 {
     font-weight: bold;
     font-size: 18px;
 }
+
+#editUserBio
+{
+    height: 185px;
+}
+
 @media(max-width:768px)
 {
     #stats
@@ -153,6 +180,10 @@
         grid-template-columns: 1fr 1fr;
     }
     #userInfo
+    {
+        grid-template-columns: 1fr;
+    }
+    #allAchievements
     {
         grid-template-columns: 1fr;
     }

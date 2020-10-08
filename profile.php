@@ -31,8 +31,10 @@ if(!isset($user) || $user == '')
     <div class="container"><br>
 		<div id="profile" style="display: grid; grid-gap: 10px; min-height: calc(100vh - 180px);">
 			<div id="profileSide" style="position: relative;">
-                <button id="editProfileBtn" class="btn btn-lg" data-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></button>
-				<img src="assets/img/default-user.png" id="profileImg" style="background: #fff; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2);"> <!-- THIS MAY NEED CHANGING!!! -->
+                <?php if($user == $_SESSION['userID']){ ?><button id="editProfileBtn" class="btn btn-lg" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-edit"></i></button><?php } ?>
+                
+                <div id="profileImg" style="background: url('assets/img/default-user.png') no-repeat center; background-size: cover; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2); clip-path: circle(50% at 50% 50%);"></div>
+                
 				<div id="profileBio" style="text-align: center; border: 1px solid black; border-radius: 3px; padding: 60px 15px 15px; margin-top: -50px; min-height: calc(100% - 100px); display: grid; grid-template-rows: 1fr auto;">
 					<div id="bio-top">
 						<h2 style="line-height: 1; margin: 0 0 10px;">User</h2>
@@ -61,10 +63,11 @@ if(!isset($user) || $user == '')
                 </div>
                 <div id="userInfo" class="row"> <!-- Owned Games, TMP Status, etc. -->
                     <div class="col">
-                        <h3>Achievements <small id="achievement-count">0</small></h3>
+                        <h3>Achievements</h3>
                         <div id="achievements">
                             <span id="no-achievements">No achievements found!</span>
                         </div>
+                        <button id="viewAllAchievements" class="btn btn-block btn-orange" data-toggle="modal" data-target="#allAchievementsModal">View All Achievements (<span class="achievement-count">0</span>)</button>
                     </div>
                     <div class="col">
                         <h3>Another Heading</h3>
@@ -90,87 +93,205 @@ if(!isset($user) || $user == '')
     
     <?php require_once("./assets/common/footer.php"); ?>
     
+    
+<div class="modal fade" id="allAchievementsModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Achievements (<span class="achievement-count">0</span>)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Return to Profile">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="allAchievements">
+            
+        </div>
+      </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light btn-block" data-dismiss="modal" aria-label="Close">
+                Return to Profile
+            </button>
+        </div>
+    </div>
+  </div>
+</div>
+    
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <button type="button" class="close editProfileCancel" data-dismiss="modal" aria-label="Cancel">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form id="editUserProfile">
+              <div class="form-group">
+                  <label for="editDisplayName">Display Name</label>
+                  <input type="text" class="form-control" id="editDisplayName" maxlength="20">
+                  <small id="editDisplayNameHelp" class="form-text text-muted">Less than 20 characters, may contain spaces.</small>
+              </div>
+              <div class="form-group">
+                  <label for="editUserBio">Bio</label>
+                  <textarea class="form-control" id="editUserBio" maxlength="255" style="resize: none;"></textarea>
+                  <small id="editUserBioHelp" class="form-text text-muted"><span id="bioCharCount">255</span> characters remaining</small>
+              </div>
+          </form>
+          <span>You can manage your linked accounts and change other settings on the <a href="#" data-toggle="tooltip" title="This will NOT save your changes.">Account Settings</a> page.</span>
+      </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light editProfileCancel" data-dismiss="modal" style="width: 20%;">Cancel</button>
+            <button type="button" id="editProfileSave" class="btn btn-orange" style="position: relative; width: 60%;">
+                <span class="spinner-border text-light" id="editProfileSpinner" role="status" aria-hidden="true" style="position: absolute; left: 15px; top: 8px; height: 20px; width: 20px;"></span>
+                Save changes
+            </button>
+        </div>
+    </div>
+  </div>
+</div>
+    
+    
     <?php require_once("./assets/scripts/js-includes.php"); ?>
     <script>
         $('#socials a').hide();
-        $.ajax({
-            url: 'https://api.truckersdb.net/v3/user/userProfile.php',
-            type: 'POST',
-            data: {
-                userID: <?php echo($user); ?>
-            },
-            success: function(res){
-                if(res.status == 1){
-                    // Add display name
-                    $('#bio-top h2').text(res.response.profile.displayName);
-                    document.title = res.response.profile.displayName + ' | TruckersDB';
-                    // Display join date
-                    var dateJoined = formatTimestamp(res.response.profile.dateCreated);
-                    console.log(dateJoined);
-                    $('#dateJoined strong').text(dateJoined.month + ' ' + dateJoined.year);
-                    // Set user bio
-                    $('#bio').text(res.response.profile.userBio);
-                    // Set Discord
-                    if(res.response.profile.discordID != '0'){
-                        $('#social-discord').show().attr('href', 'https://discord.com/users/' + res.response.profile.discordID);
-                        $('#social-discord span').text(res.response.profile.discordName);
-                    }
-                    // Set Twitter
-                    if(res.response.profile.twitterID != '0'){
-                        $('#social-twitter').show().attr('href', 'https://twitter.com/i/user/' + res.response.profile.twitterID);
-                        $('#social-twitter span').text('@' + res.response.profile.twitterName);
-                    }
-                    // Set TruckersMP
-                    if(res.response.profile.tmpID != '0'){
-                        $('#social-truckersmp').show().attr('href', 'https://truckersmp.com/user/' + res.response.profile.tmpID);
-                        $('#social-truckersmp span').text(res.response.profile.tmpName);
-                    }
-                    // Set Steam
-                    if(res.response.profile.steamID != '0'){
-                        $('#social-steam').show().attr('href', 'https://steamcommunity.com/profiles/' + res.response.profile.steamID);
-                        $('#social-steam span').text(res.response.profile.steamName);
-                    }
-                    // Hide 'Other' Social Media (for now)
-                    $('#social-other').hide();
-                    
-                    // Profile Badges
-                    if(res.response.profile.tdbStaff == true){
-                        $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;">TruckersDB Staff</span>')
-                    }
-                    if(res.response.profile.betaTester == true){
-                        $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;">#TDBv5 Tester</span>');
-                    }
-                    
-                    // Get Achievements
-                    $.ajax({
-                        url: 'https://api.truckersdb.net/v3/user/userAchievements.php',
-                        type: 'POST',
-                        data: {
-                            userID: <?php echo($user); ?>
-                        },
-                        success: function(res){
-                            if(res.status == 1 && res.response.achievementCount > 0){
-                                $('#achievement-count').text(res.response.achievementCount);
-                                $('#no-achievements').hide();
-                                res.response.achievements.forEach(function(achievement){
-                                    var dateAchieved = formatTimestamp(achievement.dateAchieved);
-                                    
-                                    $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
-                                });
-                                $('.achievement').tooltip();
-                            }
+        $('#editProfileSpinner').hide();
+        loadProfile();
+        
+        function loadProfile(){
+            $.ajax({
+                url: 'https://api.truckersdb.net/v3/user/userProfile.php',
+                type: 'POST',
+                data: {
+                    userID: <?php echo($user); ?>
+                },
+                success: function(res){
+                    if(res.status == 1){
+                        <?php if($user == $_SESSION['userID']) { ?>
+                        $('#editProfileBtn').tooltip({title: 'Edit Profile'});
+                        $('#editDisplayName').val(res.response.profile.displayName);
+                        $('#editUserBio').text(res.response.profile.userBio);
+
+                        $('#bioCharCount').text(255 - ($('#editUserBio').val().length));
+                        $('#editUserBio').keyup(function(){
+                            var charsLeft = 255 - ($('#editUserBio').val().length);
+                            $('#bioCharCount').text(charsLeft);
+                        });
+
+                        $('#editProfileSave').click(function(){
+                            var newDisplayName = $('#editDisplayName').val();
+                            var newUserBio = $('#editUserBio').val();
+                            $('#editProfileSpinner').show();
+                            $('#editProfileSave').attr('disabled', 'true');
+                            $('#editDisplayName').attr('disabled', 'true');
+                            $('#editUserBio').attr('disabled', 'true');
+                            $('.editProfileCancel').attr('disabled', 'true');
+                            $.ajax({
+                                url: 'https://api.truckersdb.net/v3/user/updateProfile.php',
+                                type: 'POST',
+                                data: {
+                                    userID: <?php echo($_SESSION['userID']); ?>,
+                                    displayName: newDisplayName,
+                                    userBio: newUserBio,
+                                    lang: 'en'
+                                },
+                                success: function(res){
+                                    if(res.status == 1){
+                                        window.location.href = 'updateProfile.php?displayName=' + encodeURIComponent(newDisplayName) + '&return=' + encodeURI(window.location.href);
+                                    } else{
+                                        $('#editProfileSpinner').hide();
+                                        $('#editProfileSave').attr('disabled', 'false');
+                                        $('#editDisplayName').attr('disabled', 'false');
+                                        $('#editUserBio').attr('disabled', 'false');
+                                        $('.editProfileCancel').attr('disabled', 'false');
+                                        alert('Error: ' + res.error + ' Please try again later.');
+                                    }
+                                }
+                            });
+                        });
+
+                        <?php } ?>
+                        // Add display name
+                        $('#bio-top h2').text(res.response.profile.displayName);
+                        document.title = res.response.profile.displayName + ' | TruckersDB';
+                        // Display join date
+                        var dateJoined = formatTimestamp(res.response.profile.dateCreated);
+                        $('#dateJoined strong').text(dateJoined.month + ' ' + dateJoined.year);
+                        // Set user bio
+                        $('#bio').text(res.response.profile.userBio);
+                        // Set Discord
+                        if(res.response.profile.discordID != '0'){
+                            $('#social-discord').show().attr('href', 'https://discord.com/users/' + res.response.profile.discordID);
+                            $('#social-discord span').text(res.response.profile.discordName);
                         }
-                    });
-                } else{
-                    if(res.error == 'User does not exist.'){
-                        window.location.replace(location.pathname);
+                        // Set Twitter
+                        if(res.response.profile.twitterID != '0'){
+                            $('#social-twitter').show().attr('href', 'https://twitter.com/i/user/' + res.response.profile.twitterID);
+                            $('#social-twitter span').text('@' + res.response.profile.twitterName);
+                        }
+                        // Set TruckersMP
+                        if(res.response.profile.tmpID != '0'){
+                            $('#social-truckersmp').show().attr('href', 'https://truckersmp.com/user/' + res.response.profile.tmpID);
+                            $('#social-truckersmp span').text(res.response.profile.tmpName);
+                        }
+                        // Set Steam
+                        if(res.response.profile.steamID != '0'){
+                            $('#social-steam').show().attr('href', 'https://steamcommunity.com/profiles/' + res.response.profile.steamID);
+                            $('#social-steam span').text(res.response.profile.steamName);
+                        }
+                        // Hide 'Other' Social Media (for now)
+                        $('#social-other').hide();
+
+                        // Profile Badges
+                        $('#badges').html('');
+                        if(res.response.profile.tdbStaff == true){
+                            $('#badges').append('<span class="badge" style="background: #fc7900; color: #fff;">TruckersDB Staff</span>')
+                        }
+                        if(res.response.profile.betaTester == true){
+                            $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;">#TDBv5 Tester</span>');
+                        }
+
+                        // Get Achievements
+                        $.ajax({
+                            url: 'https://api.truckersdb.net/v3/user/userAchievements.php',
+                            type: 'POST',
+                            data: {
+                                userID: <?php echo($user); ?>
+                            },
+                            success: function(res){
+                                if(res.status == 1 && res.response.achievementCount > 0){
+                                    $('.achievement-count').text(res.response.achievementCount);
+                                    $('#no-achievements').hide();
+                                    $('#viewAllAchievements').show();
+                                    res.response.achievements.forEach(function(achievement, index){
+                                        var dateAchieved = formatTimestamp(achievement.dateAchieved);
+                                        
+                                        $('#achievements').html('');
+
+                                        if(index < 3){
+                                            $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
+                                        }
+
+                                        $('#allAchievements').html('');
+                                        
+                                        $('#allAchievements').append('<div class="achievement"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span><span class="dateAchieved">Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '</span></div>');
+                                    });
+                                    $('.achievement').tooltip();
+                                }
+                            }
+                        });
                     } else{
-                        alert('Error: ' + res.error);
-                        window.location.href('https://v5.truckersdb.net');
+                        if(res.error == 'User does not exist.'){
+                            window.location.replace(location.pathname);
+                        } else{
+                            alert('Error: ' + res.error);
+                            window.location.href('https://v5.truckersdb.net');
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>
