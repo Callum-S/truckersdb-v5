@@ -40,6 +40,7 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt highlight"></i>&nbsp; Your Dashboard</a>
                                 <a class="dropdown-item" href="profile.php"><i class="far fa-address-card highlight"></i>&nbsp; View Profile</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user-cog highlight"></i>&nbsp; Account Settings</a>
+								<a class="dropdown-item" href="#"><i class="fas fa-download highlight"></i>&nbsp; Downloads</a>
                                 <a class="dropdown-item" href="#"><i class="far fa-life-ring highlight"></i>&nbsp; Support</a>
                             </div>
                             <div class="col dropdown-divider-vertical">
@@ -48,10 +49,9 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-chart-line highlight"></i>&nbsp; Company Dashboard</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-calendar-alt highlight"></i>&nbsp; Company Events</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-dolly highlight"></i>&nbsp; Submit a Job</a>
-								<a class="dropdown-item" href="#"><i class="fas fa-download highlight"></i>&nbsp; Downloads</a>
+								<a class="dropdown-item" href="#"><i class="fas fa-id-card highlight"></i>&nbsp; View Company Profile</a>
                                     <?php if ( (isset($_SESSION['canManageCompany']) && $_SESSION['canManageCompany'] == 1) ) { ?>
                                     <a class="dropdown-item" href="#"><i class="fas fa-cogs highlight"></i>&nbsp; Company Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-id-card highlight"></i>&nbsp; View Company Profile</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-clipboard-check highlight"></i>&nbsp; Manage Applications</a>
                                     <a class="dropdown-item" href="#"><i class="fas fa-plus-square highlight"></i>&nbsp; Additional Features</a>
                                 <?php     }
