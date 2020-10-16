@@ -55,10 +55,10 @@ if(!isset($user) || $user == '')
 				<div id="userStats">
                     <!--<h3>User Statistics</h3>-->
                     <div id="stats">
-                        <div><h4>99,999,999<small> MI</small></h4><span>Distance Driven</span></div>
-                        <div><h4>99,999</h4><span>Deliveries Made</span></div>
-                        <div><h4>9,999</h4><span>Events Attended</span></div>
-                        <div><h4>99,999<small> HRS</small></h4><span>Total Hours</span></div>
+                        <div><h4 id="statsDistanceDriven">0<small> MI</small></h4><span>Distance Driven</span></div>
+                        <div><h4 id="statsDeliveriesMade">0</h4><span>Deliveries Made</span></div>
+                        <div><h4 id="statsEventsAttended">0</h4><span>Events Attended</span></div>
+                        <div><h4 id="statsHoursPlayed">0<small> HRS</small></h4><span>Hours Played</span></div>
                     </div>
                 </div>
                 <div id="userInfo" class="row"> <!-- Owned Games, TMP Status, etc. -->
@@ -70,11 +70,22 @@ if(!isset($user) || $user == '')
                         <button id="viewAllAchievements" class="btn btn-block btn-orange" data-toggle="modal" data-target="#allAchievementsModal">View All Achievements (<span class="achievement-count">0</span>)</button>
                     </div>
                     <div class="col">
-                        <h3>Another Heading</h3>
-                        Soon&trade;
+                        <h3>Owned Games</h3>
+                        <div id="ownedGames">
+                            <div id="ownedATS" style="filter: grayscale(100%) blur(3px);" data-toggle="tooltip" title="American Truck Simulator">
+                                <img src="assets/img/ats.jpg">
+                                <span></span>
+                            </div>
+                            <div id="ownedETS2" style="filter: grayscale(100%) blur(3px);" data-toggle="tooltip" title="Euro Truck Simulator 2">
+                                <img src="assets/img/ets2.jpg">
+                                <span></span>
+                            </div>
+                        </div>
+                        <h3>Something Else</h3>
+                        <div>Soon&trade;</div>
                     </div>
                 </div>
-                <div id="companyDetails"> <!-- Remove this if they aren't part of a company?? -->
+                <div id="companyDetails" style="display: none;"> <!-- Remove this if they aren't part of a company?? -->
                     <h3>TestVTC</h3>
                     <div id="details" style="text-align: center;">
                         Soon&trade;
@@ -213,6 +224,7 @@ if(!isset($user) || $user == '')
                         });
 
                         <?php } ?>
+                        
                         // Add display name
                         $('#bio-top h2').text(res.response.profile.displayName);
                         document.title = res.response.profile.displayName + ' | TruckersDB';
@@ -252,6 +264,19 @@ if(!isset($user) || $user == '')
                         if(res.response.profile.betaTester == true){
                             $('#badges').append('<span class="badge" style="background: #f0b70c; color: #fff;">#TDBv5 Tester</span>');
                         }
+                        
+                        // Owned Games / Hours Played
+                        var stats = res.response.profile.statistics;
+                        if(stats.ownsATS == true){
+                            $('#ownedATS').css('filter', 'none');
+                            $('#ownedATS span').text(stats.hoursPlayedATS + ' HOURS');
+                        }
+                        if(stats.ownsETS2 == true){
+                            $('#ownedETS2').css('filter', 'none');
+                            $('#ownedETS2 span').text(stats.hoursPlayedETS2 + ' HOURS');
+                        }
+                        var totalHours = stats.hoursPlayedATS + stats.hoursPlayedETS2;
+                        $('#statsHoursPlayed').html(totalHours + '<small> HRS</small>');
 
                         // Get Achievements
                         $.ajax({
@@ -282,6 +307,7 @@ if(!isset($user) || $user == '')
                                 }
                             }
                         });
+                        
                     } else{
                         if(res.error == 'User does not exist.'){
                             window.location.replace(location.pathname);

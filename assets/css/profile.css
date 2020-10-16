@@ -73,7 +73,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-#userStats, #userInfo .col, #companyDetails, #recentJobs
+#userStats, #userInfo .col, #companyDetails, #recentJobs, #ownedGames
 {
     margin-bottom: 30px;
 }
@@ -171,6 +171,37 @@
 #editUserBio
 {
     height: 185px;
+}
+
+#ownedGames
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+#ownedGames div
+{
+    position: relative;
+}
+#ownedGames img
+{
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
+}
+#ownedGames span
+{
+    position: absolute;
+    display: block;
+    bottom: 10px;
+    right: 0;
+    font-weight: 600;
+    background: #eee;
+    min-width: 45%;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 3px 0 0 3px;
 }
 
 @media(max-width:768px)
