@@ -43,11 +43,11 @@ if(!isset($user) || $user == '')
 					<span style="display: block; margin-top: 20px;" id="bio"></span>
 					</div>
 					<div id="socials" style="text-align: left;">
-						<a id="social-discord" href="#" target="_blank" style="display: block; margin-top: 15px;"><img src="assets/img/discord.svg" width="32"> &nbsp; <span>Discord Username#1234</span></a>
-						<a id="social-twitter" href="#" target="_blank" style="display: block; margin-top: 15px;"><img src="assets/img/twitter.svg" width="32"> &nbsp; <span>@TwitterUser</span></a>
-						<a id="social-truckersmp" href="#" target="_blank" style="display: block; margin-top: 15px;"><img src="assets/img/truckersmp.png" width="32"> &nbsp; <span>TruckersMP Username</span></a>
-                        <a id="social-steam" href="#" target="_blank" style="display: block; margin-top: 15px;"><img src="assets/img/steam.svg" width="32"> &nbsp; <span>Steam Username</span></a>
-						<a id="social-other" href="#" style="display: block; margin-top: 15px;"><img src="assets/img/other-social.svg" width="32"> &nbsp; Other Social Media</a>
+						<a id="social-discord" href="#" target="_blank" style="display: block; margin-top: 15px;"><img draggable="false"  src="assets/img/discord.svg" width="32"> &nbsp; <span>Discord Username#1234</span></a>
+						<a id="social-twitter" href="#" target="_blank" style="display: block; margin-top: 15px;"><img draggable="false"  src="assets/img/twitter.svg" width="32"> &nbsp; <span>@TwitterUser</span></a>
+						<a id="social-truckersmp" href="#" target="_blank" style="display: block; margin-top: 15px;"><img  draggable="false" src="assets/img/truckersmp.png" width="32"> &nbsp; <span>TruckersMP Username</span></a>
+                        <a id="social-steam" href="#" target="_blank" style="display: block; margin-top: 15px;"><img draggable="false"  src="assets/img/steam.svg" width="32"> &nbsp; <span>Steam Username</span></a>
+						<a id="social-other" href="#" style="display: block; margin-top: 15px;"><img draggable="false"  src="assets/img/other-social.svg" width="32"> &nbsp; Other Social Media</a>
 					</div>
 				</div>
 			</div>
@@ -73,11 +73,11 @@ if(!isset($user) || $user == '')
                         <h3>Owned Games</h3>
                         <div id="ownedGames">
                             <div id="ownedATS" style="filter: grayscale(100%) blur(3px);" data-toggle="tooltip" title="American Truck Simulator">
-                                <img src="assets/img/ats.jpg">
+                                <img draggable="false" src="assets/img/ats.jpg">
                                 <span></span>
                             </div>
                             <div id="ownedETS2" style="filter: grayscale(100%) blur(3px);" data-toggle="tooltip" title="Euro Truck Simulator 2">
-                                <img src="assets/img/ets2.jpg">
+                                <img draggable="false" src="assets/img/ets2.jpg">
                                 <span></span>
                             </div>
                         </div>
@@ -296,12 +296,12 @@ if(!isset($user) || $user == '')
                                         $('#achievements').html('');
 
                                         if(index < 3){
-                                            $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
+                                            $('#achievements').append('<div class="achievement" title="Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '"><img draggable="false" class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span></div>');
                                         }
 
                                         $('#allAchievements').html('');
                                         
-                                        $('#allAchievements').append('<div class="achievement"><img class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span><span class="dateAchieved">Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '</span></div>');
+                                        $('#allAchievements').append('<div class="achievement"><img draggable="false" class="achievementIcon" src="' + achievement.achievementIcon + '"><span class="achievementTitle">' + achievement.achievementTitle + '</span><span class="achievementSummary">' + achievement.achievementSummary + '!</span><span class="dateAchieved">Achieved on ' + dateAchieved.day + ' ' + dateAchieved.month + ' ' + dateAchieved.year + '</span></div>');
                                     });
                                     $('.achievement').tooltip();
                                 }
