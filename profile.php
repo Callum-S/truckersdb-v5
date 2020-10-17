@@ -81,8 +81,12 @@ if(!isset($user) || $user == '')
                                 <span></span>
                             </div>
                         </div>
-                        <h3>Something Else</h3>
-                        <div>Soon&trade;</div>
+                        <h3>TruckersMP</h3>
+						<div>
+                   			<span style="color: black">Currently offline</span>
+                   			<br>
+                   			<span style="color: green;">No recent bans</span>
+                   		</div>
                     </div>
                 </div>
                 <div id="companyDetails" style="display: none;"> <!-- Remove this if they aren't part of a company?? -->
@@ -269,11 +273,19 @@ if(!isset($user) || $user == '')
                         var stats = res.response.profile.statistics;
                         if(stats.ownsATS == true){
                             $('#ownedATS').css('filter', 'none');
-                            $('#ownedATS span').text(stats.hoursPlayedATS + ' HOURS');
+							if(stats.hoursPlayedATS == 1){
+								$('#ownedATS span').text(stats.hoursPlayedATS + ' HOUR');
+							} else{
+								$('#ownedATS span').text(stats.hoursPlayedATS + ' HOURS');
+							}
                         }
                         if(stats.ownsETS2 == true){
                             $('#ownedETS2').css('filter', 'none');
-                            $('#ownedETS2 span').text(stats.hoursPlayedETS2 + ' HOURS');
+							if(stats.hoursPlayedETS2 == 1){
+								$('#ownedETS2 span').text(stats.hoursPlayedETS2 + ' HOUR');
+							} else{
+								$('#ownedETS2 span').text(stats.hoursPlayedETS2 + ' HOURS');
+							}
                         }
                         var totalHours = stats.hoursPlayedATS + stats.hoursPlayedETS2;
                         $('#statsHoursPlayed').html(totalHours + '<small> HRS</small>');
