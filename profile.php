@@ -143,6 +143,16 @@ if(!isset($user) || $user == '')
       </div>
       <form id="editUserProfile" autocomplete="off">
           <div class="modal-body">
+            <div class="row" style="margin-bottom: 10px;">
+            	<div class="col" style="position: relative;">
+            		<div id="profileImagePreview" style="background: url('./assets/img/default-user.png') no-repeat center; background-size: cover; border-radius: 50%; height: 130px; width: 130px; margin: 0 auto;"></div>
+            	</div>
+            	<div class="form-group">
+             		<label for="editProfileImage">Change Profile Image</label>
+             		<input type="file" class="form-control-file" id="editProfileImage">
+             		<small id="editProfileImageHelp" class="form-text text-muted">Max. file size: 10MB</small>
+             	</div>
+            </div>
               <div class="form-group">
                   <label for="editDisplayName">Display Name</label>
                   <input type="text" class="form-control" id="editDisplayName" maxlength="20">
@@ -194,7 +204,7 @@ if(!isset($user) || $user == '')
                             $('#bioCharCount').text(charsLeft);
                         });
 
-                        $('#editUserProfile').submit(function(e){
+                        /*$('#editUserProfile').submit(function(e){
                             e.preventDefault();
                             var newDisplayName = $('#editDisplayName').val();
                             var newUserBio = $('#editUserBio').val();
@@ -207,7 +217,7 @@ if(!isset($user) || $user == '')
                                 url: 'https://api.truckersdb.net/v3/user/updateProfile.php',
                                 type: 'POST',
                                 data: {
-                                    userID: <?php echo($_SESSION['userID']); ?>,
+                                    userID: <?php //echo($_SESSION['userID']); ?>,
                                     displayName: newDisplayName,
                                     userBio: newUserBio,
                                     lang: 'en'
@@ -225,7 +235,55 @@ if(!isset($user) || $user == '')
                                     }
                                 }
                             });
+                        });*/
+						
+						// Edited for profile image (testing!)
+						$('#editUserProfile').submit(function(e){
+                            e.preventDefault();
+                            $('#editProfileSpinner').show();
+                            $('#editProfileSave').attr('disabled', 'true');
+							$('#editProfileImage').attr('disabled', 'true');
+                            $('#editDisplayName').attr('disabled', 'true');
+                            $('#editUserBio').attr('disabled', 'true');
+                            $('.editProfileCancel').attr('disabled', 'true');
+                            $.ajax({
+                                url: 'https://api.truckersdb.net/v3/user/updateProfileTest.php',
+                                type: 'POST',
+                                data: new FormData(this),
+								
+								cache: false,
+								contentType: false,
+								processData: false,
+								
+                                success: function(res){
+                                    if(res.status == 1){
+                                        window.location.href = 'updateProfile.php?displayName=' + encodeURIComponent(newDisplayName) + '&return=' + encodeURI(window.location.href);
+                                    } else{
+                                        $('#editProfileSpinner').hide();
+                                        $('#editProfileSave').attr('disabled', 'false');
+										$('#editProfileImage').attr('disabled', 'false');
+                                        $('#editDisplayName').attr('disabled', 'false');
+                                        $('#editUserBio').attr('disabled', 'false');
+                                        $('.editProfileCancel').attr('disabled', 'false');
+                                        alert('Error: ' + res.error + ' Please try again later.');
+                                    }
+                                }
+                            });
                         });
+
+						/* Profile Image Preview */
+						$("#editProfileImage").change(function() {
+							if (this.files && this.files[0]) {
+							var reader = new FileReader();
+
+							reader.onload = function(e) {
+								$('#profileImagePreview').css('background', 'url('+e.target.result+') no-repeat center');
+								$('#profileImagePreview').css('background-size', 'cover');
+							}
+
+							reader.readAsDataURL(this.files[0]); // convert to base64 string
+						  }
+						});
 
                         <?php } ?>
                         
@@ -237,6 +295,9 @@ if(!isset($user) || $user == '')
                         $('#dateJoined strong').text(dateJoined.month + ' ' + dateJoined.year);
                         // Set user bio
                         $('#bio').text(res.response.profile.userBio);
+						// Profile Image
+						$('#profileImg').css('background', 'url('+res.response.profile.profileImage+')');
+						$('#profileImg').css('background-size', 'cover');
                         // Set Discord
                         if(res.response.profile.discordID != '0'){
                             $('#social-discord').show().attr('href', 'https://discord.com/users/' + res.response.profile.discordID);

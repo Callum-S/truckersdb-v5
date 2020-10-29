@@ -28,7 +28,8 @@
 				<?php if ( isset($_SESSION['userID']) && $_SESSION['userID'] != '' ) { ?>
                 <li class="nav-item dropdown profile-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span id="profileImage" style="background: url('assets/img/default-user.png') no-repeat center;"></span> &nbsp; <?php echo($_SESSION['displayName']); ?>
+                    <?php $profileImg = (file_exists('https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'])) ? 'https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'] : 'https://v5.truckersdb.net/assets/img/users/default.png'; ?>
+						<span id="profileImage" style="background: url('<?php echo($profileImg); ?>') no-repeat center;"></span> &nbsp; <?php echo($_SESSION['displayName']); ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                        <a href="logout.php" id="logoutButton"><i class="fas fa-sign-out-alt highlight"></i></a>
