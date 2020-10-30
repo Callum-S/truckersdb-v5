@@ -145,7 +145,7 @@ if(!isset($user) || $user == '')
           <div class="modal-body">
             <div class="row" style="margin-bottom: 10px;">
             	<div class="col" style="position: relative;">
-            		<div id="profileImagePreview" style="background: url('./assets/img/default-user.png') no-repeat center; background-size: cover; border-radius: 50%; height: 130px; width: 130px; margin: 0 auto;"></div>
+            		<div id="profileImagePreview" style="background: url('./assets/img/users/default.png') no-repeat center; background-size: cover; border-radius: 50%; height: 130px; width: 130px; margin: 0 auto;"></div>
             	</div>
             	<div class="form-group">
              		<label for="editProfileImage">Change Profile Image</label>
@@ -297,7 +297,9 @@ if(!isset($user) || $user == '')
                         $('#bio').text(res.response.profile.userBio);
 						// Profile Image
 						$('#profileImg').css('background', 'url('+res.response.profile.profileImage+')');
-						$('#profileImg').css('background-size', 'cover');
+                        $('#profileImg').css('background-size', 'cover');
+                        $('#profileImagePreview').css('background', 'url('+res.response.profile.profileImage+')');
+                        $('#profileImagePreview').css('background-size', 'cover');
                         // Set Discord
                         if(res.response.profile.discordID != '0'){
                             $('#social-discord').show().attr('href', 'https://discord.com/users/' + res.response.profile.discordID);
