@@ -33,7 +33,7 @@ if(!isset($user) || $user == '')
 			<div id="profileSide" style="position: relative;">
                 <?php if($user == $_SESSION['userID']){ ?><button id="editProfileBtn" class="btn btn-lg" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-edit"></i></button><?php } ?>
                 
-                <div id="profileImg" style="background: url('assets/img/default-user.png') no-repeat center; background-size: cover; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2); clip-path: circle(50% at 50% 50%);"></div>
+                <div id="profileImg" style="background: url('assets/img/users/default.png') no-repeat center; background-size: cover; border-radius: 50%; border: 1px solid black; width: 150px; height: 150px; margin-left: calc((100% - 150px) / 2); clip-path: circle(50% at 50% 50%);"></div>
                 
 				<div id="profileBio" style="text-align: center; border: 1px solid black; border-radius: 3px; padding: 60px 15px 15px; margin-top: -50px; min-height: calc(100% - 100px); display: grid; grid-template-rows: 1fr auto;">
 					<div id="bio-top">
@@ -296,9 +296,9 @@ if(!isset($user) || $user == '')
                         // Set user bio
                         $('#bio').text(res.response.profile.userBio);
 						// Profile Image
-						$('#profileImg').css('background', 'url('+res.response.profile.profileImage+')');
+						$('#profileImg').css('background', 'url('+res.response.profile.profileImage+') no-repeat center');
                         $('#profileImg').css('background-size', 'cover');
-                        $('#profileImagePreview').css('background', 'url('+res.response.profile.profileImage+')');
+                        $('#profileImagePreview').css('background', 'url('+res.response.profile.profileImage+') no-repeat center');
                         $('#profileImagePreview').css('background-size', 'cover');
                         // Set Discord
                         if(res.response.profile.discordID != '0'){
