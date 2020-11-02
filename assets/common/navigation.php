@@ -28,7 +28,7 @@
 				<?php if ( isset($_SESSION['userID']) && $_SESSION['userID'] != '' ) { ?>
                 <li class="nav-item dropdown profile-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php $headers = get_headers('https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'].'.png'); $profile['profileImage'] = ($headers[0] == 'HTTP/1.1 200 OK') ? 'https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'].'.png' : 'https://v5.truckersdb.net/assets/img/users/default.png'; ?>
+                    <?php $headers = get_headers('https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'].'.png'); $profileImg = ($headers[0] == 'HTTP/1.1 200 OK') ? 'https://v5.truckersdb.net/assets/img/users/'.$_SESSION['userID'].'.png' : 'https://v5.truckersdb.net/assets/img/users/default.png'; ?>
 						<span id="profileImage" style="background: url('<?php echo($profileImg); ?>') no-repeat center;"></span> &nbsp; <?php echo($_SESSION['displayName']); ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
