@@ -143,6 +143,7 @@ if(!isset($user) || $user == '')
       </div>
       <form id="editUserProfile" autocomplete="off">
           <div class="modal-body">
+              <input type="hidden" name="userID" value="<?php echo($_SESSION['userID']); ?>">
             <div class="row" style="margin-bottom: 10px;">
             	<div class="col" style="position: relative;">
             		<div id="profileImagePreview" style="background: url('./assets/img/users/default.png') no-repeat center; background-size: cover; border-radius: 50%; height: 130px; width: 130px; margin: 0 auto;"></div>
