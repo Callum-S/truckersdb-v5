@@ -18,6 +18,7 @@ if( isset($_SESSION['userID']) )
     <link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/resetPassword.css">
 	<link rel="icon" href="assets/img/icon.png">
+    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#222222"},"button":{"background":"#fc7900","text":"#000000"}},"position":"bottom","padding":"none","corners":"small","margin":"large","transparency":"10"})});</script>
 </head>
 <body>
 	<a href="https://v5.truckersdb.net" id="resetPwdBack" class="btn btn-lg btn-light">&#8592; Back to TruckersDB</a>
