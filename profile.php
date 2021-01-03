@@ -145,7 +145,7 @@ if(!isset($user) || $user == '')
       <form id="editUserProfile" autocomplete="off">
           <div class="modal-body">
               <input type="hidden" name="userID" value="<?php echo($_SESSION['userID']); ?>">
-            <div class="row" style="margin-bottom: 10px;">
+            <!--<div class="row" style="margin-bottom: 10px;">
             	<div class="col" style="position: relative;">
             		<div id="profileImagePreview" style="background: url('./assets/img/users/default.png') no-repeat center; background-size: cover; border-radius: 50%; height: 130px; width: 130px; margin: 0 auto;"></div>
             	</div>
@@ -154,7 +154,7 @@ if(!isset($user) || $user == '')
              		<input type="file" class="form-control-file" id="editProfileImage">
              		<small id="editProfileImageHelp" class="form-text text-muted">Max. file size: 10MB</small>
              	</div>
-            </div>
+            </div>-->
               <div class="form-group">
                   <label for="editDisplayName">Display Name</label>
                   <input type="text" class="form-control" id="editDisplayName" maxlength="20">
@@ -206,7 +206,7 @@ if(!isset($user) || $user == '')
                             $('#bioCharCount').text(charsLeft);
                         });
 
-                        /*$('#editUserProfile').submit(function(e){
+                        $('#editUserProfile').submit(function(e){
                             e.preventDefault();
                             var newDisplayName = $('#editDisplayName').val();
                             var newUserBio = $('#editUserBio').val();
@@ -237,10 +237,10 @@ if(!isset($user) || $user == '')
                                     }
                                 }
                             });
-                        });*/
+                        });
 						
 						// Edited for profile image (testing!)
-						$('#editUserProfile').submit(function(e){
+						/*$('#editUserProfile').submit(function(e){
                             e.preventDefault();
                             $('#editProfileSpinner').show();
                             $('#editProfileSave').attr('disabled', 'true');
@@ -271,7 +271,7 @@ if(!isset($user) || $user == '')
                                     }
                                 }
                             });
-                        });
+                        });*/
 
 						/* Profile Image Preview */
 						$("#editProfileImage").change(function() {
