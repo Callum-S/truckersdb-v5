@@ -1,6 +1,7 @@
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="https://v5.truckersdb.net">
-        <i class="fas fa-truck"></i> &nbsp; TruckersDB
+        <!--<i class="fas fa-truck"></i> &nbsp; TruckersDB-->
+            <img src="assets/img/logo-orange.png" style="height: 40px; padding: 4px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -1,6 +1,6 @@
 @import url('reset.css');
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
 
 ::-webkit-scrollbar
 {
@@ -18,7 +18,7 @@
 
 body
 {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Poppins', sans-serif;
     user-select: none;
     background: #fff;
     font-weight: 400;
@@ -72,7 +72,7 @@ p
 
 strong, b
 {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 em, i
@@ -97,6 +97,11 @@ span.required
 {
 	color: red;
 	font-weight: bold;
+}
+
+label
+{
+    font-weight: 400;
 }
 
 textarea:focus,
@@ -184,7 +189,7 @@ input[type="password"]
 
 .navbar
 {
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
     box-shadow: 0px 1px 10px 0px rgba(32,32,32,0.5);
 }
@@ -572,12 +577,12 @@ input[type="password"]
 		width: 350px;
 	}
 	
-	#registerForm #password-checker #pc-meter
+	/*#registerForm #password-checker #pc-meter
 	{
 		position: absolute;
 		top: 5px;
 		right: 10px;
-	}
+	}*/
 	
 	.footer {
 		padding-bottom: 0;
