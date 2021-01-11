@@ -28,28 +28,28 @@ session_start();
     
     <div class="container">
 		<h2>Latest News &amp; Updates</h2>
-		<div id="latestUpdates">
-			<div class="card" style="background: rgb(240, 240, 240)">
+		<div id="latestUpdates" class="row">
+			<div class="card col-lg">
 			  <div class="card-body">
-				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<h5 class="card-title">This might be cool!</h5><span class="text-muted timestamp">08:43 UTC - 29 August 2020</span><br>
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>
 				<a href="#" class="btn btn-orange">Read More</a>
 			  </div>
 			</div><br>
-			<div class="card" style="background: rgb(240, 240, 240)">
+			<div class="card col-lg">
 			  <div class="card-body">
-				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<h5 class="card-title">This might be cool!</h5><span class="text-muted timestamp">08:43 UTC - 29 August 2020</span><br>
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>
 				<a href="#" class="btn btn-orange">Read More</a>
 			  </div>
 			</div><br>
-			<div class="card" style="background: rgb(240, 240, 240)">
+			<div class="card col-lg">
 			  <div class="card-body">
-				<h5 class="card-title" style="display: inline">This might be cool!</h5> &nbsp; <span class="text-muted" style="vertical-align: bottom">08:43 UTC - 29 August 2020</span><br>
+				<h5 class="card-title">This might be cool!</h5><span class="text-muted timestamp">08:43 UTC - 29 August 2020</span><br>
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>

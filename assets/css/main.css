@@ -67,7 +67,6 @@ h6
 p
 {
     font-size: 1.1em;
-	user-select: text;
 }
 
 strong, b
@@ -392,7 +391,33 @@ input[type="password"]
 
 #latestUpdates
 {
-	margin-bottom: 30px;
+    padding: 0 7px;
+    margin-bottom: 30px;
+}
+
+#latestUpdates .card
+{
+    box-shadow: 0 0 10px 0 #cccccc;
+    border: none;
+    margin: 0 10px 0;
+    background-color: transparent;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#latestUpdates .card:hover
+{
+    box-shadow: 0 0 10px 3px #cccccc;
+    transform: scale(1.01);
+}
+
+#latestUpdates .card .card-title
+{
+    margin-bottom: 0;
+}
+
+#latestUpdates .card .timestamp
+{
+    font-size: 16px;
 }
 
 #about p
