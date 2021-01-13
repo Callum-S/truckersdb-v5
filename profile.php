@@ -219,7 +219,7 @@ if(!isset($user) || $user == '')
                                 url: 'https://api.truckersdb.net/v3/user/updateProfile.php',
                                 type: 'POST',
                                 data: {
-                                    userID: <?php //echo($_SESSION['userID']); ?>,
+                                    userID: <?php echo($_SESSION['userID']); ?>,
                                     displayName: newDisplayName,
                                     userBio: newUserBio,
                                     lang: 'en'

@@ -324,7 +324,7 @@ input[type="password"]
 
 .login-dropdown .dropdown-menu #forgotPwd:hover
 {
-	filter: brightness(85%);
+	filter: brightness(80%);
 }
 
 #loginErr
@@ -541,6 +541,12 @@ input[type="password"]
     color: #fff;
     margin: 50px 0 0;
     padding: 0 0 20px;
+}
+
+.footer-logo
+{
+    height: 23px;
+    vertical-align: text-top;
 }
 
 .footer span {

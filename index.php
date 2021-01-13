@@ -35,7 +35,7 @@ session_start();
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>
-				<a href="#" class="btn btn-orange">Read More</a>
+				<a href="#" class="btn btn-block btn-orange">Read More</a>
 			  </div>
 			</div><br>
 			<div class="card col-lg">
@@ -44,7 +44,7 @@ session_start();
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>
-				<a href="#" class="btn btn-orange">Read More</a>
+				<a href="#" class="btn btn-block btn-orange">Read More</a>
 			  </div>
 			</div><br>
 			<div class="card col-lg">
@@ -53,7 +53,7 @@ session_start();
 				<p class="card-text" style="margin-top: 5px; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui purus, sollicitudin in pharetra in, scelerisque sed metus. Maecenas erat mauris, tincidunt vehicula enim sit amet, finibus pharetra ex. Proin sit amet felis auctor, feugiat est quis non. [...]
 
 	</p>
-				<a href="#" class="btn btn-orange">Read More</a>
+				<a href="#" class="btn btn-block btn-orange">Read More</a>
 			  </div>
 			</div>
 		</div>

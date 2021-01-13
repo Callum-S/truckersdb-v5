@@ -94,7 +94,7 @@ if(isset($_SESSION['userID']))
 					<div id="regOptIn">
 						<div class="form-check">
 							<input type="checkbox" class="form-check-input" id="agreeTerms">
-							<label class="form-check-label" for="agreeTerms">I agree to the <a href="#" target="_blank">TruckersDB Terms of Service</a><span class="required">*</span></label>
+							<label class="form-check-label" for="agreeTerms" style="vertical-align: sub;">I agree to the <a href="#" target="_blank">TruckersDB Terms of Service</a><span class="required">*</span></label>
 						</div><br>
 							<p><small class="text-muted">We will only use the information provided to create your account and provide you with the services that the TruckersDB platform has to offer. You are free to remove your account or view the data we have stored about your account at any time. <a href="#" target="_blank">Click here to view our Privacy Policy.</a></small></p>
 					</div>
