@@ -1,6 +1,6 @@
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="./">
-            <img src="assets/img/logo-orange.png" style="height: 40px; padding: 4px;" alt="">
+            <img src="assets/img/logo-orange.webp" style="height: 40px; padding: 4px;" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
