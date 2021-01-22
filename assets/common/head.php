@@ -16,7 +16,7 @@ session_start();
 	<link rel="icon" href="./assets/img/icon.png">
     <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#222222"},"button":{"background":"#fc7900","text":"#000000"}},"position":"bottom","padding":"none","corners":"small","margin":"large","transparency":"10"})});</script>
     
-    <meta property="description" content="The all-in-one platform for both drivers and VTCs. Making VTC life easier." />
+    <meta name="description" content="The all-in-one platform for both drivers and VTCs. Making VTC life easier." />
     
     <meta name="twitter:card" content="summary" />
     <meta property="og:url" content="<?php echo("https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"); ?>" />
