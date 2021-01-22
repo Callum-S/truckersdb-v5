@@ -52,7 +52,7 @@ require_once("./assets/common/head.php");
         <div id="about">
 			<h2>What is TruckersDB?</h2>
 			<p>TruckersDB is the all-in-one solution for VTCs, drivers and event organizers to manage everything trucking. From advertising and applications to job logging and leaderboards, we've got you covered. It's never been easier to join a company that suits you - or set up your own! With a huge variety of tools and features for everyone, including almost full customization across the entire platform, our aim is to cut the stress and time spent on simple day-to-day tasks, allowing you to get on with the big things.</p>
-			<p>If you're reading this, welcome. Thank you for being a part of the team working to shape this platform into the perfect system for the community. We have a massive amount of features to include, and even more ideas for the future. As you can see, great progress has been made, but we have a long way to go, and we couldn't do it without you. &#10084; Keep an eye on this site and make sure to watch out for updates in <a target="_blank" href="https://discord.truckersdb.net">our Discord server</a>!</p>
+			<p>If you're reading this, welcome. Thank you for being a part of the team working to shape this platform into the perfect system for the community. We have a massive amount of features to include, and even more ideas for the future. As you can see, great progress has been made, but we have a long way to go, and we couldn't do it without you. &#10084; Keep an eye on this site and make sure to watch out for updates in <a target="_blank" href="https://discord.truckersdb.net" rel="noopener">our Discord server</a>!</p>
 		</div>
     </div>
     <?php require_once("./assets/common/footer.php"); ?>

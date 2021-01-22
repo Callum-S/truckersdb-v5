@@ -28,7 +28,7 @@ require_once("./assets/common/head.php");
             Sometimes, we may need to share data with select third parties so that we can provide you with access to all features of our platform. These third parties also follow strict privacy rules, and we will only share and receive data that you have already agreed to, such as a unique identifier for each service, or your public profile information.
         </p>
         <p>
-            Currently, we only share and receive data from <a href="https://store.steampowered.com/privacy_agreement/" target="_blank">Steam</a> and <a href="https://truckersmp.com/policy" target="_blank">TruckersMP</a> - you can click the names of each service to view their own privacy policy.
+            Currently, we only share and receive data from <a href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener">Steam</a> and <a href="https://truckersmp.com/policy" target="_blank" rel="noopener">TruckersMP</a> - you can click the names of each service to view their own privacy policy.
         </p>
         <h4>How long do we store your data?</h4>
         <p>
