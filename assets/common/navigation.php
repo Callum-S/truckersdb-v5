@@ -1,7 +1,6 @@
 	<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="https://v5.truckersdb.net">
-        <!--<i class="fas fa-truck"></i> &nbsp; TruckersDB-->
-            <img src="assets/img/logo-orange.png" style="height: 40px; padding: 4px;">
+        <a class="navbar-brand" href="./">
+            <img src="assets/img/logo-orange.png" style="height: 40px; padding: 4px;" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,19 +9,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Browse Companies</a>
+                    <a class="nav-link" href="./browse.php">Browse Companies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Events Calendar</a>
+                    <a class="nav-link" href="./events.php">Events Calendar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Leaderboard</a>
+                    <a class="nav-link" href="./leaderboard.php">Leaderboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">News &amp; Updates</a>
+                    <a class="nav-link" href="./news-updates.php">News &amp; Updates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="./contact.php">Contact Us</a>
                 </li>
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">

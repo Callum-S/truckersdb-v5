@@ -1,0 +1,21 @@
+.container p
+{
+    text-align: justify;
+}
+.container h4
+{
+    text-align: center;
+}
+.container ul li
+{
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+.container ul li::before
+{
+    content: "➔ "
+}
+.container ul li strong
+{
+    font-size: 1.2rem;
+}

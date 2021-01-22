@@ -1,5 +1,5 @@
-<footer class="footer">
+<footer>
   <div class="container">
-      <img src="assets/img/logo-white.png" class="footer-logo"> <span><a href="#">GDPR/Privacy Notice</a></span> <span><a href="#">Terms of Service</a></span>
+      <a href="./"><img src="assets/img/logo-white.png" class="footer-logo" alt=""></a> <span><a href="./privacy.php">GDPR/Privacy Notice</a></span> <span><a href="./terms.php">Terms of Service</a></span>
   </div>
 </footer>

@@ -16,6 +16,11 @@
     background: #fc7900;
 }
 
+::selection {
+  	color: white;
+  	background: #fc7900;
+}
+
 body
 {
     font-family: 'Poppins', sans-serif;
@@ -92,52 +97,15 @@ a:hover
     text-decoration: none;
 }
 
-span.required
+.highlight
 {
-	color: red;
-	font-weight: bold;
+    color: #fc7900;
 }
 
-label
+.container h2
 {
-    font-weight: 400;
-}
-
-textarea:focus,
-select:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {   
-  border-color: rgba(252, 121, 0, 0.5) !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(252, 121, 0, 0.6) !important;
-  outline: 0 none !important;
-}
-
-select
-{
-	padding: 0 12px !important;
-}
-
-::selection {
-  	color: white;
-  	background: #fc7900;
-}
-
-input[type="password"]
-{
-    padding-right: 40px;
+	margin-top: 20px;
+    text-align: center;
 }
 
 .bg-blurple
@@ -181,9 +149,46 @@ input[type="password"]
 	color: white;
 }
 
-.highlight
+.container:not(:last-child)
 {
-    color: #fc7900;
+    min-height: calc(100vh - 176px);
+}
+
+label
+{
+    font-weight: 400;
+}
+
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(252, 121, 0, 0.5) !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(252, 121, 0, 0.6) !important;
+  outline: 0 none !important;
+}
+
+select
+{
+	padding: 0 12px !important;
+}
+
+input[type="password"]
+{
+    padding-right: 40px;
 }
 
 .navbar
@@ -341,95 +346,6 @@ input[type="password"]
 	margin: 0 5%;
 }
 
-
-.hero
-{
-    background: url('../img/showusyourlorry.jpg') no-repeat center;
-    background-size: cover;
-    height: 50vh;
-    margin-top: -10px;
-    color: #fff;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: inset 0px -1px 10px 0px rgba(32,32,32,0.5);
-}
-
-.hero .overlay
-{
-    background: rgba(20, 20, 20, 0.5);
-    width: 100%;
-    height: 100%;
-	margin: 0;
-}
-
-.hero .overlay .hero-txt
-{
-	height: 15vh;
-	margin: calc((35vh - 15vh) / 2) 0;
-	padding: 0 20px;
-}
-
-.hero .overlay .hero-txt h1
-{
-	font-size: 3.5em;
-	line-height: 1;
-}
-
-.hero .overlay .hero-txt h4
-{
-	font-size: 2.25em;
-	line-height: 1;
-}
-
-.container h2
-{
-	margin-top: 20px;
-}
-
-
-#latestUpdates
-{
-    padding: 0 7px;
-    margin-bottom: 30px;
-}
-
-#latestUpdates .card
-{
-    box-shadow: 0 0 10px 0 #cccccc;
-    border: none;
-    margin: 0 10px 0;
-    background-color: transparent;
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-#latestUpdates .card:hover
-{
-    box-shadow: 0 0 10px 3px #cccccc;
-    transform: scale(1.01);
-}
-
-#latestUpdates .card .card-title
-{
-    margin-bottom: 0;
-}
-
-#latestUpdates .card .timestamp
-{
-    font-size: 16px;
-}
-
-#about p
-{
-	text-align: justify;
-}
-
-#registerForm .col-md
-{
-	margin-bottom: 20px;
-}
-
 .passwordEye
 {
     float: right;
@@ -437,102 +353,7 @@ input[type="password"]
     margin-right: 3px;
 }
 
-#registerForm #password-checker
-{
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	margin: 10px 0;
-	padding: 5px 10px;
-	position: relative;
-}
-
-#registerForm #password-checker ul
-{
-	list-style-type: circle;
-	list-style-position: inside;
-}
-
-#registerForm #password-checker #pc-meter
-{
-	font-size: 1.15em;
-}
-
-#registerForm #password-checker #pc-meter #pc-meter-strength
-{
-	font-weight: bold;
-}
-
-#registerForm #password-checker #pc-meter #pc-meter-level
-{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	height: 15px;
-	margin-top: 5px;
-	border: 1px solid #000;
-}
-
-#registerForm #password-checker #pc-meter #pc-level-low
-{
-	background: red;
-	border: 1px solid #000;
-}
-#registerForm #password-checker #pc-meter #pc-level-medium
-{
-	background: orange;
-	border: 1px solid #000;
-}
-#registerForm #password-checker #pc-meter #pc-level-high
-{
-	background: green;
-	border: 1px solid #000;
-}
-
-#registerForm #regErr
-{
-	background: red;
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	border: 2px solid #cc0000;
-	text-align: center;
-}
-
-#registerForm #regErr *
-{
-	margin: 0;
-	padding: 0;
-	user-select: none;
-}
-
-#registerForm #regOptIn
-{
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	padding: 10px;
-}
-
-#registerForm #regOptIn input[type=checkbox]
-{
-	width: 20px;
-	height: 20px;
-}
-
-#registerForm #regOptIn label
-{
-	vertical-align: middle;
-	margin-left: 10px;
-}
-
-#registerForm #regOptIn p
-{
-	margin: 0 10px;
-	user-select: none;
-	text-align: justify;
-}
-
-
-
-.footer {
+footer {
     text-align: center;
     width: 100%;
     min-height: 40px;
@@ -543,13 +364,13 @@ input[type="password"]
     padding: 0 0 20px;
 }
 
-.footer-logo
+footer .footer-logo
 {
     height: 23px;
     vertical-align: text-top;
 }
 
-.footer span {
+footer span {
 	display: block;
 }
 
@@ -559,71 +380,22 @@ input[type="password"]
 	{
 		position: static !important;
 	}
-	#regSubmit
-	{
-		width: 100%;
-		margin-top: 10px;
-	}
-	#resetPwd button
-	{
-		width: 100%;
-		margin-top: 10px;
-	}
 }
-
-@media (min-width: 622px) {
-	.hero .overlay .hero-txt
-	{
-		height: 15vh;
-		margin: calc((50vh - 15vh) / 2) 0;
-		padding: 0 20px;
-	}
-}
-
-@media (min-width: 992px) {
-	.hero .overlay .hero-txt
-	{
-		height: 15vh;
-		margin: calc((50vh - 15vh) / 2) 0;
-		padding: 0 20px;
-	}
-	
-	.hero .overlay .hero-txt h1
-	{
-		font-size: 5em;
-		line-height: 1;
-	}
-
-	.hero .overlay .hero-txt h4
-	{
-		font-size: 3.75em;
-		line-height: 1;
-	}
-}
-
 @media(min-width: 576px)
 {
 	.login-dropdown .dropdown-menu
 	{
 		width: 350px;
 	}
-	
-	/*#registerForm #password-checker #pc-meter
-	{
-		position: absolute;
-		top: 5px;
-		right: 10px;
-	}*/
-	
-	.footer {
+    footer {
 		padding-bottom: 0;
 	}
 	
-	.footer span:before {
+	footer span:before {
 		content: ' \00a0\00a0 | \00a0\00a0 ';
 	}
 	
-	.footer span {
+	footer span {
 		display: inline;
 	}
 }
