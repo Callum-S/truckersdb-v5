@@ -1,0 +1,97 @@
+#registerForm .col-md
+{
+	margin-bottom: 20px;
+}
+
+#registerForm #password-checker
+{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 10px 0;
+	padding: 5px 10px;
+	position: relative;
+}
+
+#registerForm #password-checker ul
+{
+	list-style-type: circle;
+	list-style-position: inside;
+}
+
+#registerForm #password-checker #pc-meter
+{
+	font-size: 1.15em;
+}
+
+#registerForm #password-checker #pc-meter #pc-meter-strength
+{
+	font-weight: bold;
+}
+
+#registerForm #password-checker #pc-meter #pc-meter-level
+{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 15px;
+	margin-top: 5px;
+	border: 1px solid #000;
+    border-radius: 100vh;
+}
+
+#registerForm #password-checker #pc-meter #pc-level-low
+{
+	background: red;
+	border-radius: 100vh 0 0 100vh;
+}
+#registerForm #password-checker #pc-meter #pc-level-medium
+{
+	background: orange;
+}
+#registerForm #password-checker #pc-meter #pc-level-high
+{
+	background: green;
+    border-radius: 0 100vh 100vh 0;
+}
+
+#registerForm #regErr
+{
+	background: red;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid #cc0000;
+	text-align: center;
+}
+
+#registerForm #regErr *
+{
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+#registerForm #regTerms
+{
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+#registerForm #regTerms input[type=checkbox]
+{
+	width: 20px;
+	height: 20px;
+}
+
+#registerForm #regTerms label
+{
+	vertical-align: sub;
+	margin-left: 10px;
+}
+
+#registerForm #regTerms p
+{
+	margin: 0 10px;
+	user-select: none;
+	text-align: justify;
+}

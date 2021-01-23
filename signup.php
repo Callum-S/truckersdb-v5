@@ -1,27 +1,10 @@
 <?php
-session_start();
-
-if(isset($_SESSION['userID']))
-{
-    header('Location: https://v5.truckersdb.net');
-}
+$pageTitle = "Register | TruckersDB";
+$pageName = "signup";
+require_once("./assets/common/head.php");
 ?>
-
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <!-- Meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sign Up | TruckersDB</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-	<link rel="icon" href="assets/img/icon.png">
-    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#222222"},"button":{"background":"#fc7900","text":"#000000"}},"position":"bottom","padding":"none","corners":"small","margin":"large","transparency":"10"})});</script>
-</head>
 <body>
     <?php require_once("assets/common/navigation.php"); ?>
-    
     <div class="container">
 		<h2 class="text-center">Create a <span class="highlight">TruckersDB</span> Account</h2>
 		<form id="registerForm">
@@ -91,12 +74,12 @@ if(isset($_SESSION['userID']))
 					</div>
 				</div>
 				<div class="col-md">
-					<div id="regOptIn">
+					<div id="regTerms">
 						<div class="form-check">
 							<input type="checkbox" class="form-check-input" id="agreeTerms">
-							<label class="form-check-label" for="agreeTerms" style="vertical-align: sub;">I agree to the <a href="#" target="_blank">TruckersDB Terms of Service</a><span class="required">*</span></label>
+							<label class="form-check-label" for="agreeTerms">I agree to the <a href="./terms.php" target="_blank" rel="noopener">TruckersDB Terms of Service</a><span class="required">*</span></label>
 						</div><br>
-							<p><small class="text-muted">We will only use the information provided to create your account and provide you with the services that the TruckersDB platform has to offer. You are free to remove your account or view the data we have stored about your account at any time. <a href="#" target="_blank">Click here to view our Privacy Policy.</a></small></p>
+							<p><small class="text-muted">We will only use the information provided to create your account and provide you with the services that the TruckersDB platform has to offer. You are free to remove your account or view the data we have stored about your account at any time. <a href="./privacy.php" target="_blank" rel="noopener">Click here to view our Privacy Policy.</a></small></p>
 					</div>
 				</div>
 			</div>
@@ -110,7 +93,6 @@ if(isset($_SESSION['userID']))
     </div>
     
     <?php require_once("./assets/common/footer.php"); ?>
-    
-    <?php require_once("./assets/scripts/js-includes.php"); ?>
+    <?php require_once("./assets/common/scripts.php"); ?>
 </body>
 </html>

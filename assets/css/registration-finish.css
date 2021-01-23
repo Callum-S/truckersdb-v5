@@ -1,0 +1,15 @@
+#reg-finish
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+}
+
+@media(max-width: 576px)
+{
+    #reg-finish
+    {
+        grid-template-columns: 1fr;
+    }
+}
